@@ -203,6 +203,25 @@ button,a{touch-action:manipulation}
 @media(max-width:600px){.alternatives-collapsed>summary{padding:14px}.alternatives-grid{padding:10px}}
 </style>
 
+
+<style id="budget-tickets-css">
+.expense-subhead{margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,127,127,.22)}
+</style>
+
+
+<style id="routes-stops-css">
+.route-stops-subhead{margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,127,127,.22)}
+</style>
+
+
+<style id="hotel-status-merge-css">
+.hotel-status-collapsed{margin-top:18px;border:1px solid rgba(127,127,127,.25);border-radius:16px;overflow:hidden}
+.hotel-status-collapsed>summary{cursor:pointer;padding:16px 18px;font-weight:800;user-select:none}
+.hotel-status-collapsed[open]>summary{border-bottom:1px solid rgba(127,127,127,.2)}
+.hotel-status-inner{padding:16px}
+@media(max-width:600px){.hotel-status-collapsed>summary{padding:14px}.hotel-status-inner{padding:10px}}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap">
@@ -212,7 +231,7 @@ button,a{touch-action:manipulation}
 <div class="badges"><span class="badge">25/8–5/9</span><span class="badge">11 noches</span><span class="badge">2 Sevilla + 5 Algarve + 2 Mérida + 2 Toledo</span><span class="badge">2 adultos + 11 y 16 años</span></div>
 </div></header>
 <nav><div class="wrap">
-<button class="active" data-tab="plan">Itinerario</button><button data-tab="days">Día a día</button><button data-tab="hotels">Hoteles</button><button data-tab="confirmed">Reservas</button><button data-tab="status">Estado hoteles</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas</button><button data-tab="stops">Paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto</button><button data-tab="expenses">Tickets</button><button data-tab="check">Checklist</button>
+<button class="active" data-tab="plan">Itinerario</button><button data-tab="days">Día a día</button><button data-tab="hotels">Hoteles y reservas</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas y paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto y tickets</button><button data-tab="check">Checklist</button>
 </div></nav>
 <main>
 
@@ -264,7 +283,7 @@ button,a{touch-action:manipulation}
 </section>
 
 <section id="hotels">
-<div class="head"><div><div class="eyebrow">Alojamiento</div><h2>Hoteles reservados</h2></div><p>Vista principal: únicamente los hoteles y habitaciones finalmente reservados. Las alternativas descartadas quedan al final, cerradas por defecto.</p></div>
+<div class="head"><div><div class="eyebrow">Alojamiento · reservas</div><h2>Hoteles y reservas confirmadas</h2></div><p>Una única vista con hotel, habitación reservada, fechas, precio, condiciones, horarios y enlaces. Las alternativas estudiadas quedan al final, cerradas por defecto.</p></div>
 
 <div class="hotelgrid">
 <div class="card hotel">
@@ -312,18 +331,11 @@ button,a{touch-action:manipulation}
   <div class="card hotel"><span class="eyebrow">Algarve · alternativa descartada</span><h3>EPIC SANA Algarve 5★</h3><p>Se estudió Family Room / dos habitaciones comunicadas.</p><div class="actions"><a target="_blank" href="https://sanahotels.com/es/hotel/epic-sana-algarve/">Ver hotel</a></div></div>
  </div>
 </details>
-</section>
 
-<section id="confirmed">
-<div class="head"><div><div class="eyebrow">Confirmaciones</div><h2>Reservas confirmadas</h2></div><p>Resumen público sin localizadores ni datos personales.</p></div>
-<div class="daygrid">
-<div class="card"><span class="eyebrow">Sevilla · confirmado</span><h3>Hotel Alfonso XIII</h3><div class="room"><b>Habitación reservada · Premium Suite, 1 dormitorio, 1 King Super</b><br>Suite de más de 46 m², con dormitorio independiente y sala de estar separada. En la reserva constan 50–64 m², cama King, capacidad máxima 4, posibilidad de hasta 2 camas extra/cunas, baño con ducha y tocador doble, amenities Byredo, Nespresso, minibar y servicio de habitaciones 24 h.<br><a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/rooms/">Ver habitaciones y suites oficiales</a> · <a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/photos/">Ver fotos oficiales</a></div><div class="room"><b>Horarios:</b> desayuno San Fernando 07:00–11:00 · piscina exterior disponible; Pool Bar 11:00–20:00 y Pool Restaurant 12:30–18:00. El hotel no publica un horario independiente del vaso de piscina, así que confirmar en recepción al llegar.</div><p>25–27/8 · 2 noches · Premium Suite · 2 adultos + 2 hijos · desayuno · <b>2.134 €</b>. Cancelación gratuita hasta 24/8 a las 23:59.</p></div>
-<div class="card"><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália Resort & Hotel Spa</h3><div class="room"><b>Habitaciones reservadas · 2 × One Bedroom Deluxe Villa</b><br>Cada villa tiene 43 m², 1 dormitorio, salón con kitchenette, 1 baño y balcón/terraza con vistas al resort. Reforma reciente, sofá cama para hasta 2 niños de hasta 12 años o 1 adulto, dos televisores, Nespresso, microondas, frigorífico, placa eléctrica, hervidor y tostadora SMEG. Incluye desayuno y acceso al área termal Real Spa Therapy.<br><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/accommodation/villas/">Ver One Bedroom Deluxe Villa oficial</a></div><div class="room"><b>Horarios:</b> desayuno Real Cozinha 07:30–10:30 (hora portuguesa) · 4 piscinas exteriores para adultos + 3 infantiles. El hotel no publica un horario único de apertura/cierre de las piscinas exteriores; confirmar en recepción. Spa 09:00–18:00. La piscina interior climatizada es estacional y figura cerrada durante nuestra estancia de verano.</div><p>27/8–1/9 · 5 noches · 2 One Bedroom Deluxe Villas · Bed & Breakfast · <b>3.533,50 € + 40 € de tasas locales previstas</b>. Petición de villas juntas o próximas.</p></div>
-<div class="card"><span class="eyebrow">Mérida · confirmado</span><h3>ILUNION Mérida Palace</h3><p>1–3/9 · 2 noches · 2 habitaciones dobles · alojamiento y desayuno · <b>598,40 €</b> impuestos incluidos. Llegada indicada 16:00. Cancelación gratuita hasta 25/8; posteriormente, cobro anticipado según condiciones. Petición de habitaciones comunicadas/contiguas o próximas.</p></div>
-<div class="card"><span class="eyebrow">Toledo · confirmado</span><h3>Hotel Cigarral El Bosque</h3><p>3–5/9 · 2 noches · 2 habitaciones Confort · desayuno incluido · <b>804 €</b>. Pago en establecimiento. Cancelación gratuita hasta 2/9. Solicitadas habitaciones comunicadas/contiguas o próximas.</p></div>
-</div></section>
-<section id="status">
-<div class="head"><div><div class="eyebrow">Seguimiento</div><h2>Estado de consultas</h2></div><p>Monitorización activa por email. No se reserva nada sin autorización.</p></div>
+<details class="hotel-status-collapsed">
+ <summary>Estado y seguimiento de los hoteles</summary>
+ <div class="hotel-status-inner">
+<h2>Estado de consultas</h2></div><p>Monitorización activa por email. No se reserva nada sin autorización.</p></div>
 <div class="hotelgrid">
 <div class="card"><h3>Hotel Alfonso XIII</h3><div class="status ok"><b>CONFIRMADO</b><br><span>Premium Suite · 25–27/8 · 2 adultos + 2 hijos · desayuno · total 2.134 €. Pendiente solo de confirmación escrita de dos camas extra y desayuno para cuatro.</span></div></div>
 <div class="card"><h3>Grande Real Santa Eulália</h3><div class="status ok"><b>CONFIRMADO</b><br><span>2 × One Bedroom Deluxe Villa · Bed & Breakfast · 27/8–1/9 · total 3.573,50 € incluyendo cargos indicados en hotel. Villas juntas/próximas solicitadas, pendiente de confirmación escrita.</span></div></div>
@@ -332,7 +344,11 @@ button,a{touch-action:manipulation}
 <div class="card"><h3>EPIC SANA</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Email enviado para configuración familiar.</span></div></div>
 <div class="card"><h3>ILUNION Mérida Palace</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Consulta enviada para Mérida.</span></div></div>
 </div><div class="note">Grande Real Santa Eulália está confirmado como reserva de seguridad. Se mantienen VILALARA, Pine Cliffs, Martinhal y EPIC SANA como alternativas mientras llegan respuestas. No se publican localizador ni datos personales.</div>
+
+ </div>
+</details>
 </section>
+
 
 <section id="visits">
 <div class="head"><div><div class="eyebrow">Qué ver</div><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
@@ -354,12 +370,11 @@ button,a{touch-action:manipulation}
 <div class="route"><div><b>Mérida → Toledo · ≈300 km</b><small>Etapa intermedia cómoda para evitar el regreso directo de más de 600 km desde Mérida.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Merida%2C+Badajoz&destination=Toledo%2C+Spain&travelmode=driving">Abrir Maps</a></div>
 <div class="route"><div><b>Toledo → Elche · ≈415 km</b><small>Última etapa del viaje · alrededor de 4 h–4 h 30 de conducción base, más descanso/comida.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Toledo%2C+Spain&destination=Elche%2C+Alicante&travelmode=driving">Abrir Maps</a></div>
 </div>
-<div class="note"><b>Total interurbano aproximado: 1.737 km.</b> Sumando desplazamientos locales en Sevilla, Algarve y Mérida, conviene prever alrededor de 1.900–2.000 km para todo el viaje. Google Maps recalculará automáticamente distancia, tráfico y ruta el día de cada desplazamiento.</div></section>
-
-
-
-<section id="stops">
-<div class="head"><div><div class="eyebrow">Carretera</div><h2>Paradas programadas</h2></div><p>Puntos concretos para no tener que decidir sobre la marcha. Los PK/salidas son los que deben buscarse en la señalización; Google Maps queda como respaldo.</p></div>
+<div class="note"><b>Total interurbano aproximado: 1.737 km.</b> Sumando desplazamientos locales en Sevilla, Algarve y Mérida, conviene prever alrededor de 1.900–2.000 km para todo el viaje. Google Maps recalculará automáticamente distancia, tráfico y ruta el día de cada desplazamiento.</div>
+<div class="head route-stops-subhead">
+  <div><div class="eyebrow">Paradas programadas</div><h2>Paradas en carretera</h2></div>
+  <p>Salida, punto kilométrico, hora prevista, duración y acceso directo a Maps para cada etapa.</p>
+</div>
 <div class="daygrid">
 
 <div class="card">
@@ -431,6 +446,10 @@ button,a{touch-action:manipulation}
 <div class="note"><b>Regla:</b> si Google Maps modifica sustancialmente la ruta por tráfico, obras o accidente, seguir la navegación y no forzar una salida prevista. Los puntos kilométricos quedan como referencia para reconocer la parada.</div>
 </section>
 
+
+
+
+
 <section id="portugal">
 <div class="head"><div><div class="eyebrow">Frontera y coche</div><h2>Entrar en Portugal</h2></div><p>Checklist específico para el Lexus RX 450h y el cruce desde Sevilla hacia el Algarve.</p></div>
 <div class="card">
@@ -447,7 +466,7 @@ button,a{touch-action:manipulation}
 
 
 <section id="budget">
-<div class="head"><div><div class="eyebrow">Presupuesto</div><h2>Coste del viaje</h2></div><p>Importes confirmados separados de las previsiones para no mezclar cifras ciertas con estimaciones.</p></div>
+<div class="head"><div><div class="eyebrow">Presupuesto · gastos reales</div><h2>Coste del viaje y tickets</h2></div><p>Importes confirmados separados de las previsiones para no mezclar cifras ciertas con estimaciones.</p></div>
 <div class="metrics">
  <div class="metric"><b>7.109,90 €</b><span>Hoteles confirmados</span></div>
  <div class="metric"><b>≈646 €</b><span>Alojamiento/noche</span></div>
@@ -479,12 +498,8 @@ button,a{touch-action:manipulation}
 </tbody></table>
 </div>
 <div class="note"><b>Coste mínimo confirmado actualmente: 7.109,90 €.</b> El “total final previsto” se actualizará automáticamente en esta sección conforme cerremos entradas, taxis, combustible, comidas y actividades.</div>
-</section>
 
-
-<section id="expenses">
-<div class="head"><div><div class="eyebrow">Gastos reales</div><h2>Tickets y gastos</h2></div><p>Haz una foto del ticket, introduce el importe y queda guardado en este dispositivo. Los datos se almacenan localmente en el navegador.</p></div>
-
+<div class="head expense-subhead"><div><div class="eyebrow">Gastos reales</div><h2>Tickets y gastos durante el viaje</h2></div><p>Fotografía el ticket desde el iPhone, registra el importe y el total del viaje se irá actualizando en este dispositivo.</p></div>
 <div class="card expense-form">
 <h3>➕ Añadir gasto</h3>
 <div class="expense-grid">
@@ -511,6 +526,9 @@ button,a{touch-action:manipulation}
 <div id="expenseList"><p class="muted">Todavía no hay gastos registrados.</p></div>
 </div>
 </section>
+
+
+
 
 <section id="check">
 <div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
