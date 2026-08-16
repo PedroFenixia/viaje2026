@@ -282,6 +282,119 @@ details[open]>summary::after{content:"−"}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.trip-progress .fill{transition:none}}
 </style>
 
+
+<style id="iphone-large-visits-v3">
+.visits-always-open{margin-top:22px;border:1px solid rgba(127,127,127,.22);border-radius:18px;overflow:hidden;background:var(--card,#fff)}
+.visits-title{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px;border-bottom:1px solid rgba(127,127,127,.18)}
+.visits-title h2{margin:2px 0 0}
+.always-visible{flex:0 0 auto;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:900;background:var(--sand);white-space:nowrap}
+.visits-always-open .visits-in-plan-inner{padding:18px}
+@media (min-width:390px) and (max-width:480px){
+  body{font-size:16px}
+  nav .wrap{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
+  nav button{min-height:50px;padding:0 16px}
+  .wrap{padding-left:14px;padding-right:14px}
+  .card{padding:17px}
+  .timeline li{grid-template-columns:68px minmax(0,1fr)}
+  .actions a,.actions button{min-height:50px}
+  .visits-title{padding:16px}
+  .visits-always-open .visits-in-plan-inner{padding:12px}
+}
+@media (min-width:1000px){
+  .wrap{max-width:1240px}
+  .visits-always-open .visits-in-plan-inner{padding:22px}
+}
+</style>
+
+
+<style id="premium-ui-v4">
+:root{
+ --bg:#f3f6f8;--card:#fff;--ink:#16242e;--muted:#687782;--line:#dce5ea;
+ --a:#123f5a;--a2:#1d6078;--b:#287b73;--sand:#f7f1e7;
+ --shadow:0 10px 30px rgba(20,53,72,.07);--shadow2:0 18px 45px rgba(20,53,72,.12);
+ --radius:20px
+}
+body{background:linear-gradient(180deg,#edf3f6 0,#f7f9fa 320px,#f3f6f8 100%);color:var(--ink)}
+.hero{position:relative;overflow:hidden;padding:64px 22px 48px;background:linear-gradient(125deg,#12374f 0%,#19536d 55%,#28756e 100%)}
+.hero:after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;right:-120px;top:-220px;background:rgba(255,255,255,.07)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{max-width:900px;text-wrap:balance}
+.hero p{max-width:860px}
+.badge{backdrop-filter:blur(8px);box-shadow:inset 0 1px rgba(255,255,255,.08)}
+nav{box-shadow:0 5px 20px rgba(25,50,65,.06)}
+nav button{transition:.18s ease;color:#41515d}
+nav button:hover{background:#edf3f6;text-decoration:none}
+nav button.active{box-shadow:0 5px 15px rgba(18,63,90,.18)}
+main{padding-top:32px}
+.head{align-items:center}
+.head h2{letter-spacing:-.025em}
+.card,.metric,.route,.check,table{box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.card:hover,.metric:hover{border-color:#cbd9e0}
+.metric{position:relative;overflow:hidden}
+.metric:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--b)}
+.metric b{letter-spacing:-.035em}
+.day{border-top:4px solid var(--a)}
+.daytop{align-items:center}
+.timeline li{position:relative}
+.timeline li span{color:#536672}
+.timeline li strong,.timeline li b{color:#172934}
+.room{background:#faf6ef}
+.status.ok{border-left:4px solid #3b8b69}
+.status.warn{border-left:4px solid #c88631}
+.actions{margin-top:14px}
+.actions a,.actions button,.route a,#exportExpenses,#saveExpense{
+ border:1px solid #ccd9df;background:#fff;color:var(--a);font-weight:850;
+ border-radius:12px;padding:10px 14px;box-shadow:0 3px 8px rgba(30,60,75,.04);
+ transition:.15s ease;text-decoration:none
+}
+.actions a:hover,.actions button:hover,.route a:hover,#exportExpenses:hover,#saveExpense:hover{
+ transform:translateY(-1px);border-color:#9fb9c5;box-shadow:0 7px 16px rgba(30,60,75,.10);text-decoration:none
+}
+.actions a:first-child,#saveExpense{background:var(--a);border-color:var(--a);color:#fff}
+details{background:#fff}
+details>summary{cursor:pointer}
+.check{cursor:pointer;transition:.15s ease}
+.check:hover{border-color:#b8ccd5}
+.check input{accent-color:var(--b)}
+input,select,textarea{outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shadow:0 0 0 4px rgba(45,125,120,.10)}
+.ux-note{border-left:4px solid var(--b)}
+.quickbar{border:1px solid rgba(255,255,255,.14)}
+.quickbar button{cursor:pointer}
+.quickbar button:hover{background:rgba(255,255,255,.1)}
+.visits-title{background:linear-gradient(180deg,#fff,#fbfcfc)}
+.visits-always-open{box-shadow:var(--shadow)}
+.alternatives-collapsed,.hotel-status-collapsed{background:#fff;box-shadow:var(--shadow)}
+@media(min-width:1100px){
+ .daygrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .hotelgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .card{padding:25px}
+}
+@media(max-width:640px){
+ body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+ .hero{padding:36px 16px 28px}
+ .hero h1{font-size:clamp(34px,10vw,46px);margin-bottom:14px}
+ .hero p{line-height:1.45}
+ .badges{margin-top:16px}
+ nav{top:0;bottom:auto}
+ nav .wrap{justify-content:flex-start;padding:7px 10px}
+ nav button{font-size:12px;min-width:auto;padding:0 13px;min-height:46px}
+ main{padding-top:18px}
+ .head h2{font-size:27px}
+ .card{padding:16px}
+ .day{border-top-width:3px}
+ .timeline li{grid-template-columns:64px minmax(0,1fr);gap:10px}
+ .timeline li span{font-size:12px}
+ .pill{white-space:normal;text-align:center}
+ .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .actions a,.actions button{width:100%;padding:10px 8px}
+ .room,.status,.note{border-radius:12px}
+ .visits-title{display:block}
+ .always-visible{display:inline-flex;margin-top:8px}
+ .quickbar{bottom:max(8px,env(safe-area-inset-bottom));border-radius:16px}
+}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap">
@@ -326,7 +439,7 @@ details[open]>summary::after{content:"−"}
 </div>
 <div class="note"><b>Regla del viaje:</b> en Sevilla, Mérida y Toledo el coche se queda aparcado en el hotel. Para desplazamientos urbanos que no convenga hacer andando, usar taxi. En Algarve se usa el coche para las excursiones.</div>
 
-<details class="visits-in-plan"><summary>Visitas, monumentos y entradas</summary><div class="visits-in-plan-inner"><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
+<div class="visits-in-plan visits-always-open"><div class="visits-title"><div><div class="eyebrow">Reservas y accesos</div><h2>Visitas, monumentos y entradas</h2></div><span class="always-visible">Siempre visible</span></div><div class="visits-in-plan-inner"><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
 <div style="overflow:auto"><table><thead><tr><th>Lugar</th><th>Cuándo</th><th>Acción</th><th>Enlaces</th></tr></thead><tbody>
 <tr><td data-label="Lugar"><b>Real Alcázar</b></td><td data-label="Cuándo">26/8 · 09:30</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://alcazarsevilla.org/prepara-la-visita/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Real+Alcazar+Sevilla">Maps</a></td></tr>
 <tr><td data-label="Lugar"><b>Catedral + Giralda</b></td><td data-label="Cuándo">26/8 · 12:00</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Sevilla">Maps</a></td></tr>
@@ -334,7 +447,7 @@ details[open]>summary::after{content:"−"}
 <tr><td data-label="Lugar"><b>Benagil</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Barco según mar</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Benagil+Portugal">Maps</a></td></tr>
 <tr><td data-label="Lugar"><b>Teatro + Anfiteatro</b></td><td data-label="Cuándo">2/9 · 09:30</td><td data-label="Acción">Bono conjunto</td><td data-label="Enlaces"><a target="_blank" href="https://www.consorciomerida.org/node/140">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Teatro+Romano+Merida">Maps</a></td></tr>
 <tr><td data-label="Lugar"><b>Museo Nacional de Arte Romano</b></td><td data-label="Cuándo">2/9 · 11:40</td><td data-label="Acción">Revisar horario</td><td data-label="Enlaces"><a target="_blank" href="https://www.cultura.gob.es/mnromano/gl/informacion/horarios-tarifas.html">Web oficial</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Museo+Nacional+Arte+Romano+Merida">Maps</a></td></tr>
-</tbody></table></div></div></details></section>
+</tbody></table></div></div></div></section>
 
 
 
@@ -663,10 +776,10 @@ boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=
 </script>
 
 <div class="quickbar" aria-label="Accesos rápidos">
-<button type="button" data-go="plan"><b>☀️</b>Hoy</button>
-<button type="button" data-go="routes"><b>🚗</b>Ruta</button>
-<button type="button" data-go="hotels"><b>🏨</b>Hotel</button>
-<button type="button" data-go="budget"><b>🧾</b>Gasto</button>
+<button type="button" data-go="plan" aria-label="Ir al planning de hoy"><b>☀️</b>Hoy</button>
+<button type="button" data-go="routes" aria-label="Ir a rutas y paradas"><b>🚗</b>Ruta</button>
+<button type="button" data-go="hotels" aria-label="Ir a hoteles y reservas"><b>🏨</b>Hotel</button>
+<button type="button" data-go="budget" aria-label="Registrar un gasto"><b>🧾</b>Gasto</button>
 </div>
 
 <script id="ux-js-v2">
@@ -700,6 +813,26 @@ boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=
    }
  });
 })();
+</script>
+
+<button id="backTop" type="button" aria-label="Volver arriba" title="Volver arriba" style="position:fixed;right:16px;bottom:96px;z-index:79;width:46px;height:46px;border-radius:50%;border:1px solid #d4e0e5;background:#fff;color:#123f5a;font-size:20px;font-weight:900;box-shadow:0 8px 24px rgba(20,53,72,.15);cursor:pointer;display:none">↑</button>
+
+<script id="premium-ui-js-v4">
+document.addEventListener('DOMContentLoaded',()=>{
+ const bt=document.getElementById('backTop');
+ if(bt){
+   const toggle=()=>bt.style.display=window.scrollY>650?'block':'none';
+   window.addEventListener('scroll',toggle,{passive:true}); toggle();
+   bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+ }
+ // Make checkbox cards toggle by tapping the whole card, without double-toggling direct inputs/links.
+ document.querySelectorAll('.check').forEach(c=>{
+   c.addEventListener('click',e=>{
+     if(e.target.closest('a,button,input,label')) return;
+     const x=c.querySelector('input[type="checkbox"]'); if(x){x.click()}
+   });
+ });
+});
 </script>
 
 </body></html>
