@@ -222,6 +222,66 @@ button,a{touch-action:manipulation}
 @media(max-width:600px){.hotel-status-collapsed>summary{padding:14px}.hotel-status-inner{padding:10px}}
 </style>
 
+<style id="visits-merge-css">
+.visits-in-plan{margin-top:22px;border:1px solid rgba(127,127,127,.25);border-radius:16px;overflow:hidden}
+.visits-in-plan>summary{cursor:pointer;padding:16px 18px;font-weight:800;user-select:none}
+.visits-in-plan[open]>summary{border-bottom:1px solid rgba(127,127,127,.2)}
+.visits-in-plan-inner{padding:16px}
+@media(max-width:600px){.visits-in-plan>summary{padding:14px}.visits-in-plan-inner{padding:10px}}
+</style>
+
+<style id="ux-optimization-v2">
+:root{--tap:48px}
+body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+.wrap{max-width:1180px}
+header .wrap{padding-top:max(22px,env(safe-area-inset-top))}
+nav{position:sticky;top:0;z-index:50;background:rgba(244,247,249,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:9px 14px}
+nav .wrap::-webkit-scrollbar{display:none}
+nav button{min-height:var(--tap);white-space:nowrap;border-radius:12px;padding:0 15px;font-weight:800}
+section{scroll-margin-top:76px}
+.card{border-radius:18px}
+.day{overflow:hidden}
+.daytop{position:relative}
+.daytop h3{line-height:1.2}
+.timeline li{min-height:48px}
+.timeline li span{font-variant-numeric:tabular-nums}
+.actions a,.actions button,button,input,select{min-height:var(--tap)}
+details>summary{min-height:var(--tap);display:flex;align-items:center}
+details>summary::after{content:"＋";margin-left:auto;font-size:20px}
+details[open]>summary::after{content:"−"}
+.quickbar{position:fixed;left:50%;bottom:max(10px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:80;width:min(720px,calc(100% - 20px));display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:7px;background:rgba(23,63,89,.96);border-radius:18px;box-shadow:0 12px 32px rgba(0,0,0,.22);backdrop-filter:blur(12px)}
+.quickbar button{border:0;background:transparent;color:#fff;border-radius:12px;font:700 11px/1.15 inherit;padding:6px 3px;min-height:52px}
+.quickbar button b{display:block;font-size:19px;margin-bottom:3px}
+.quickbar button:active{background:rgba(255,255,255,.13)}
+.trip-progress{margin-top:14px}
+.trip-progress .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.trip-progress .fill{height:100%;width:0;background:#fff;border-radius:99px;transition:width .25s}
+.trip-progress small{display:block;margin-top:6px;opacity:.88}
+.today-card{outline:3px solid rgba(45,125,120,.22);box-shadow:0 18px 38px rgba(45,125,120,.13)}
+.today-badge{display:inline-flex;align-items:center;gap:6px;background:var(--b);color:#fff;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:900;margin-bottom:8px}
+.ux-note{padding:12px 14px;border-radius:14px;background:var(--sand);margin:0 0 16px;font-size:14px}
+@media(min-width:850px){
+ body{padding-bottom:20px}
+ .quickbar{display:none}
+ nav .wrap{justify-content:center}
+ .daygrid{gap:18px}
+}
+@media(max-width:600px){
+ header h1{font-size:clamp(28px,9vw,42px)}
+ .wrap{padding-left:12px;padding-right:12px}
+ .head{display:block}
+ .head p{margin-top:8px}
+ .card{border-radius:15px}
+ .timeline li{grid-template-columns:62px 1fr;gap:9px}
+ .timeline li span{font-size:13px}
+ .actions{display:grid;grid-template-columns:1fr 1fr}
+ .actions a,.actions button{text-align:center;display:flex;align-items:center;justify-content:center}
+ .hotelgrid,.daygrid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.trip-progress .fill{transition:none}}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap">
@@ -229,31 +289,16 @@ button,a{touch-action:manipulation}
 <h1>Sevilla · Algarve · Mérida · Toledo</h1>
 <p>Planning vivo del viaje desde Elche, con hoteles, alternativas, visitas, entradas y rutas de Google Maps.</p>
 <div class="badges"><span class="badge">25/8–5/9</span><span class="badge">11 noches</span><span class="badge">2 Sevilla + 5 Algarve + 2 Mérida + 2 Toledo</span><span class="badge">2 adultos + 11 y 16 años</span></div>
-</div></header>
+</div><div class="trip-progress" id="tripProgress"><div class="bar"><div class="fill" id="tripProgressFill"></div></div><small id="tripProgressText">Viaje del 25 de agosto al 5 de septiembre de 2026</small></div></header>
 <nav><div class="wrap">
-<button class="active" data-tab="plan">Itinerario</button><button data-tab="days">Día a día</button><button data-tab="hotels">Hoteles y reservas</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas y paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto y tickets</button><button data-tab="check">Checklist</button>
+<button class="active" data-tab="plan">Itinerario día a día</button><button data-tab="hotels">Hoteles y reservas</button><button data-tab="routes">Rutas y paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto y tickets</button><button data-tab="check">Checklist</button>
 </div></nav>
 <main>
 
-<section id="plan" class="active">
-<div class="head"><div><div class="eyebrow">Planning</div><h2>Itinerario</h2></div><p>Horarios orientativos, con margen para calor, tráfico y descansos.</p></div>
-<div class="metrics"><div class="metric"><b>11</b><span>noches</span></div><div class="metric"><b>4</b><span>destinos</span></div><div class="metric"><b>~2.000 km</b><span>con desplazamientos</span></div><div class="metric"><b>5</b><span>noches Algarve</span></div></div>
-<div class="note"><b>🕒 Cambio horario España ↔ Portugal</b><br>Portugal continental tiene <b>1 hora menos</b> que España durante todo el viaje. Al entrar en Portugal el <b>27/8</b>, atrasar el reloj 1 hora (por ejemplo, 13:00 ES → 12:00 PT). Al volver a España camino de Mérida el <b>1/9</b>, adelantar el reloj 1 hora (por ejemplo, 12:00 PT → 13:00 ES). Los horarios del planning están indicados en hora local de cada lugar.</div>
-<div class="daygrid">
-<div class="card"><div class="daytop"><div><span class="date">25/8</span><h3>Elche → Sevilla</h3></div><span class="pill">09:30 → 16:30–17:00</span></div><ul class="timeline"><li><span>11:45</span><b>Descanso Lorca / Puerto Lumbreras</b></li><li><span>13:00–14:00</span><b>Comida en Guadix / A-92</b></li><li><span>19:30</span><b>Plaza de España · María Luisa · Santa Cruz</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">26/8</span><h3>Sevilla monumental</h3></div><span class="pill">09:15 → 22:00</span></div><ul class="timeline"><li><span>09:30–11:30</span><b>Real Alcázar</b></li><li><span>12:00–13:20</span><b>Catedral + Giralda</b></li><li><span>15:15–18:30</span><b>Hotel / piscina / descanso</b></li><li><span>19:00–21:30</span><b>Torre del Oro · Guadalquivir · Triana</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">27/8</span><h3>Sevilla → Algarve</h3></div><span class="pill">10:30 ES → ~12:00 PT</span></div><ul class="timeline"><li><span>10:30 ES</span><b>Salida de Sevilla</b></li><li><span>Frontera</span><b>🇵🇹 Atrasar reloj 1 hora al entrar en Portugal</b></li><li><span>~12:00 PT</span><b>Llegada al resort · hora portuguesa</b></li><li><span>13:00 PT</span><b>Comida y primera tarde de playa/piscina</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">28–31/8</span><h3>Algarve</h3></div><span class="pill">4 días completos</span></div><ul class="timeline"><li><span>28/8</span><b>Resort y playa</b></li><li><span>29/8</span><b>Praia da Marinha · Benagil · Carvoeiro</b></li><li><span>30/8</span><b>Resort y descanso</b></li><li><span>31/8</span><b>Último día completo + cena especial</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">1/9</span><h3>Algarve → Mérida</h3></div><span class="pill">10:30 PT → 16:30–17:00 ES</span></div><ul class="timeline"><li><span>12:30–13:30 PT</span><b>Comida en Beja si encaja con GPS</b></li><li><span>Frontera</span><b>🇪🇸 Adelantar reloj 1 hora al volver a España</b></li><li><span>~16:00–16:30 ES</span><b>Llegada prevista a Mérida · check-in indicado 16:00</b></li><li><span>18:30 ES</span><b>Plaza de España · Templo de Diana · Puente Romano</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">2/9</span><h3>Mérida romana</h3></div><span class="pill">09:15 → 21:30</span></div><ul class="timeline"><li><span>09:30–11:30</span><b>Teatro + Anfiteatro</b></li><li><span>11:40–13:00</span><b>Museo Nacional de Arte Romano</b></li><li><span>17:30–20:15</span><b>Mitreo / Columbarios / Acueducto o Alcazaba</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">3/9</span><h3>Mérida → Toledo</h3></div><span class="pill">Etapa cómoda</span></div><ul class="timeline"><li><span>Mañana</span><b>Desayuno y salida tranquila de Mérida</b></li><li><span>Mediodía</span><b>Ruta hacia Toledo · comida en ruta o a la llegada</b></li><li><span>Tarde</span><b>Check-in · descanso · primer paseo por Toledo y miradores</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">4/9</span><h3>Toledo monumental</h3></div><span class="pill">Día completo</span></div><ul class="timeline"><li><span>Mañana</span><b>Catedral · casco histórico · Santo Tomé / El Greco</b></li><li><span>Mediodía</span><b>Judería · San Juan de los Reyes · comida</b></li><li><span>Tarde</span><b>Descanso / piscina · Alcázar o paseo final</b></li><li><span>Noche</span><b>Cena en Toledo</b></li></ul></div>
-<div class="card"><div class="daytop"><div><span class="date">5/9</span><h3>Toledo → Elche</h3></div><span class="pill">Regreso</span></div><ul class="timeline"><li><span>Mañana</span><b>Desayuno y salida hacia Elche</b></li><li><span>Ruta</span><b>Parada de descanso + comida según horario</b></li><li><span>Tarde</span><b>Llegada a Elche</b></li></ul></div>
-</div></section>
-
-
-<section id="days">
-<div class="head"><div><div class="eyebrow">Guion operativo</div><h2>Día a día</h2></div><p>Una entrada por día: abrir, leer y seguir los pasos. Horarios en hora local del lugar.</p></div>
+<section id="plan" class="active"><div class="ux-note"><b>Modo viaje:</b> sigue cada día de arriba abajo. Horas, trayectos, visitas, descansos y comidas están ordenados para minimizar decisiones sobre la marcha.</div>
+<div class="head"><div><div class="eyebrow">Guion operativo</div><h2>Itinerario día a día</h2></div><p>Una única vista cronológica: abrir, leer y seguir los pasos. Horarios en hora local de cada lugar.</p></div>
+<div class="note"><b>🕒 Cambio horario:</b> 27/8 al entrar en Portugal atrasar 1 hora · 1/9 al regresar a España adelantar 1 hora.</div>
+<h2>Día a día</h2></div><p>Una entrada por día: abrir, leer y seguir los pasos. Horarios en hora local del lugar.</p></div>
 <div class="daygrid">
 <div class="card"><div class="daytop"><div><span class="date">Martes · 25/8</span><h3>Día 1 · Elche → Sevilla</h3></div><span class="pill">España</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno y equipaje final</b></li><li><span>09:30</span><b>Salir de Elche en coche</b></li><li><span>11:45</span><b>Parada 20 min · Lorca/Puerto Lumbreras</b></li><li><span>13:00</span><b>Comida · zona Guadix/A-92</b></li><li><span>16:30–17:00</span><b>Llegada Hotel Alfonso XIII · check-in · dejar coche</b></li><li><span>19:30</span><b>A pie: Plaza de España → Parque María Luisa → Santa Cruz</b></li><li><span>21:30</span><b>Cena y regreso andando/taxi si hay cansancio</b></li></ul></div>
 
@@ -280,7 +325,19 @@ button,a{touch-action:manipulation}
 <div class="card"><div class="daytop"><div><span class="date">Sábado · 5/9</span><h3>Día 12 · Toledo → Elche</h3></div><span class="pill">Regreso</span></div><ul class="timeline"><li><span>08:30</span><b>Desayuno buffet Cigarral · confirmar horario al check-in</b></li><li><span>10:00</span><b>Check-out y salida hacia Elche</b></li><li><span>12:00</span><b>Parada de descanso</b></li><li><span>13:30–14:30</span><b>Comida en ruta</b></li><li><span>~17:00</span><b>Llegada estimada a Elche · fin del viaje</b></li></ul></div>
 </div>
 <div class="note"><b>Regla del viaje:</b> en Sevilla, Mérida y Toledo el coche se queda aparcado en el hotel. Para desplazamientos urbanos que no convenga hacer andando, usar taxi. En Algarve se usa el coche para las excursiones.</div>
-</section>
+
+<details class="visits-in-plan"><summary>Visitas, monumentos y entradas</summary><div class="visits-in-plan-inner"><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
+<div style="overflow:auto"><table><thead><tr><th>Lugar</th><th>Cuándo</th><th>Acción</th><th>Enlaces</th></tr></thead><tbody>
+<tr><td data-label="Lugar"><b>Real Alcázar</b></td><td data-label="Cuándo">26/8 · 09:30</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://alcazarsevilla.org/prepara-la-visita/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Real+Alcazar+Sevilla">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Catedral + Giralda</b></td><td data-label="Cuándo">26/8 · 12:00</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Sevilla">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Praia da Marinha</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Sin entrada</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Portugal">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Benagil</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Barco según mar</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Benagil+Portugal">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Teatro + Anfiteatro</b></td><td data-label="Cuándo">2/9 · 09:30</td><td data-label="Acción">Bono conjunto</td><td data-label="Enlaces"><a target="_blank" href="https://www.consorciomerida.org/node/140">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Teatro+Romano+Merida">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Museo Nacional de Arte Romano</b></td><td data-label="Cuándo">2/9 · 11:40</td><td data-label="Acción">Revisar horario</td><td data-label="Enlaces"><a target="_blank" href="https://www.cultura.gob.es/mnromano/gl/informacion/horarios-tarifas.html">Web oficial</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Museo+Nacional+Arte+Romano+Merida">Maps</a></td></tr>
+</tbody></table></div></div></details></section>
+
+
+
 
 <section id="hotels">
 <div class="head"><div><div class="eyebrow">Alojamiento · reservas</div><h2>Hoteles y reservas confirmadas</h2></div><p>Una única vista con hotel, habitación reservada, fechas, precio, condiciones, horarios y enlaces. Las alternativas estudiadas quedan al final, cerradas por defecto.</p></div>
@@ -350,16 +407,7 @@ button,a{touch-action:manipulation}
 </section>
 
 
-<section id="visits">
-<div class="head"><div><div class="eyebrow">Qué ver</div><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
-<div style="overflow:auto"><table><thead><tr><th>Lugar</th><th>Cuándo</th><th>Acción</th><th>Enlaces</th></tr></thead><tbody>
-<tr><td data-label="Lugar"><b>Real Alcázar</b></td><td data-label="Cuándo">26/8 · 09:30</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://alcazarsevilla.org/prepara-la-visita/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Real+Alcazar+Sevilla">Maps</a></td></tr>
-<tr><td data-label="Lugar"><b>Catedral + Giralda</b></td><td data-label="Cuándo">26/8 · 12:00</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Sevilla">Maps</a></td></tr>
-<tr><td data-label="Lugar"><b>Praia da Marinha</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Sin entrada</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Portugal">Maps</a></td></tr>
-<tr><td data-label="Lugar"><b>Benagil</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Barco según mar</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Benagil+Portugal">Maps</a></td></tr>
-<tr><td data-label="Lugar"><b>Teatro + Anfiteatro</b></td><td data-label="Cuándo">2/9 · 09:30</td><td data-label="Acción">Bono conjunto</td><td data-label="Enlaces"><a target="_blank" href="https://www.consorciomerida.org/node/140">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Teatro+Romano+Merida">Maps</a></td></tr>
-<tr><td data-label="Lugar"><b>Museo Nacional de Arte Romano</b></td><td data-label="Cuándo">2/9 · 11:40</td><td data-label="Acción">Revisar horario</td><td data-label="Enlaces"><a target="_blank" href="https://www.cultura.gob.es/mnromano/gl/informacion/horarios-tarifas.html">Web oficial</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Museo+Nacional+Arte+Romano+Merida">Maps</a></td></tr>
-</tbody></table></div></section>
+
 
 <section id="routes">
 <div class="head"><div><div class="eyebrow">En coche</div><h2>Rutas</h2></div><p>Google Maps recalcula tráfico y duración en tiempo real.</p></div>
@@ -610,6 +658,46 @@ boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=
      const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='gastos-viaje-2026.csv';a.click();
    });
    render();
+ });
+})();
+</script>
+
+<div class="quickbar" aria-label="Accesos rápidos">
+<button type="button" data-go="plan"><b>☀️</b>Hoy</button>
+<button type="button" data-go="routes"><b>🚗</b>Ruta</button>
+<button type="button" data-go="hotels"><b>🏨</b>Hotel</button>
+<button type="button" data-go="budget"><b>🧾</b>Gasto</button>
+</div>
+
+<script id="ux-js-v2">
+(function(){
+ function showTab(id){
+   const btn=document.querySelector('[data-tab="'+id+'"]');
+   if(btn){btn.click();setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'}),50)}
+ }
+ document.addEventListener('DOMContentLoaded',()=>{
+   document.querySelectorAll('.quickbar [data-go]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.go)));
+   const start=new Date('2026-08-25T00:00:00'), end=new Date('2026-09-05T23:59:59'), now=new Date();
+   const total=end-start, elapsed=Math.max(0,Math.min(total,now-start)), pct=Math.round(elapsed/total*100);
+   const fill=document.getElementById('tripProgressFill'), text=document.getElementById('tripProgressText');
+   if(fill) fill.style.width=pct+'%';
+   if(text){
+     if(now<start) text.textContent='Viaje del 25 de agosto al 5 de septiembre de 2026 · todo preparado';
+     else if(now>end) text.textContent='Viaje finalizado · 100% completado';
+     else text.textContent='Viaje en curso · '+pct+'% del calendario completado';
+   }
+   // Highlight matching date text in day cards while travelling.
+   if(now>=start && now<=end){
+     const d=now.getDate(), months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+     const needle=d+' '+months[now.getMonth()];
+     document.querySelectorAll('#plan .day,#plan .card').forEach(c=>{
+       if(c.textContent.toLowerCase().includes(needle)){
+         c.classList.add('today-card');
+         const top=c.querySelector('.daytop')||c;
+         if(!c.querySelector('.today-badge')) top.insertAdjacentHTML('afterbegin','<span class="today-badge">HOY · seguir esta ficha</span>');
+       }
+     });
+   }
  });
 })();
 </script>
