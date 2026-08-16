@@ -171,7 +171,6 @@ button,a{touch-action:manipulation}
 }
 </style>
 
-
 <style id="expense-css">
 .expense-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .expense-grid label{display:flex;flex-direction:column;gap:6px;font-weight:700}
@@ -194,7 +193,6 @@ button,a{touch-action:manipulation}
 }
 </style>
 
-
 <style id="hotel-alternatives-css">
 .alternatives-collapsed{margin-top:22px;border:1px solid rgba(127,127,127,.25);border-radius:16px;overflow:hidden}
 .alternatives-collapsed>summary{cursor:pointer;padding:16px 18px;font-weight:800;list-style-position:inside;user-select:none}
@@ -203,16 +201,13 @@ button,a{touch-action:manipulation}
 @media(max-width:600px){.alternatives-collapsed>summary{padding:14px}.alternatives-grid{padding:10px}}
 </style>
 
-
 <style id="budget-tickets-css">
 .expense-subhead{margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,127,127,.22)}
 </style>
 
-
 <style id="routes-stops-css">
 .route-stops-subhead{margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,127,127,.22)}
 </style>
-
 
 <style id="hotel-status-merge-css">
 .hotel-status-collapsed{margin-top:18px;border:1px solid rgba(127,127,127,.25);border-radius:16px;overflow:hidden}
@@ -282,7 +277,6 @@ details[open]>summary::after{content:"−"}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.trip-progress .fill{transition:none}}
 </style>
 
-
 <style id="iphone-large-visits-v3">
 .visits-always-open{margin-top:22px;border:1px solid rgba(127,127,127,.22);border-radius:18px;overflow:hidden;background:var(--card,#fff)}
 .visits-title{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px;border-bottom:1px solid rgba(127,127,127,.18)}
@@ -305,7 +299,6 @@ details[open]>summary::after{content:"−"}
   .visits-always-open .visits-in-plan-inner{padding:22px}
 }
 </style>
-
 
 <style id="premium-ui-v4">
 :root{
@@ -395,7 +388,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 }
 </style>
 
-
 <style id="mobile-hamburger-v5">
 .mobile-menu-btn{display:none}
 @media(max-width:700px){
@@ -431,7 +423,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 }
 </style>
 
-
 <style id="mobile-subtitle-style">
 .mobile-subtitle{
   margin:8px 0 0;
@@ -449,7 +440,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
   }
 }
 </style>
-
 
 <style id="mobile-menu-active-fix">
 @media(max-width:700px){
@@ -486,8 +476,21 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 .meal-row b{font-size:15px}.meal-row small{color:var(--muted);line-height:1.4}
 .food-budget{border-left:4px solid #c58b3b}
 @media(max-width:700px){.daily-meals{grid-template-columns:1fr}.meal-row{padding:12px}}
+</style><style id="spa-note-v14">
+.spa-note{margin:12px 0;padding:13px 14px;border-radius:13px;background:#eef7fb;border:1px solid #cfe1ea;display:grid;gap:5px}
+.spa-note>b{color:var(--a)}
+.spa-note span{line-height:1.5;color:var(--ink)}
+</style><style id="pending-hotel-v15">
+.pending-confirmation{margin:14px 0;padding:14px 16px;border-radius:14px;background:#fff7e8;border:1px solid #e6c98e}
+.pending-confirmation>b{color:#8a611d}.pending-confirmation ul{margin:9px 0 7px;padding-left:20px}
+.pending-confirmation li{margin:7px 0;line-height:1.45}.pending-confirmation small{color:var(--muted)}
+</style><style id="restaurant-booking-v16">
+.booking-pending{display:inline-block;margin-top:6px;padding:4px 8px;border-radius:999px;background:#fff0d4;color:#8a611d;font-size:11px;font-weight:900;font-style:normal}
+.restaurant-booking-check{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.restaurant-booking-check p{color:var(--muted)}
 </style></head>
 <body>
+<!-- PLANNING CLEAN · 17-08-2026 -->
 <header class="hero"><div class="wrap">
 <div class="eyebrow" style="color:#dcebf0">Viaje familiar · 2026</div>
 <h1>Sevilla · Algarve · Mérida · Toledo</h1><p class="mobile-subtitle">Por los 50 ...</p>
@@ -505,16 +508,16 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <section id="plan" class="active"><div class="ux-note"><b>Modo viaje:</b> sigue cada día de arriba abajo. Horas, trayectos, visitas, descansos y comidas están ordenados para minimizar decisiones sobre la marcha.</div>
 <div class="head"><div><div class="eyebrow">Guion operativo</div><h2>Itinerario día a día</h2></div><p>Una única vista cronológica: abrir, leer y seguir los pasos. Horarios en hora local de cada lugar.</p></div>
 <div class="note"><b>🕒 Cambio horario:</b> 27/8 al entrar en Portugal atrasar 1 hora · 1/9 al regresar a España adelantar 1 hora.</div>
-<h2>Día a día</h2></div><p>Una entrada por día: abrir, leer y seguir los pasos. Horarios en hora local del lugar.</p></div>
+<h2>Día a día</h2>
 <div class="daygrid">
-<div class="card"><div class="daytop"><div><span class="date">Martes · 25/8</span><h3>Día 1 · Elche → Sevilla</h3></div><span class="pill">España</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno y equipaje final</b></li><li><span>09:30</span><b>Salir de Elche en coche</b></li><li><span>11:45</span><b>Parada 20 min · Lorca/Puerto Lumbreras</b></li><li><span>13:00</span><b>Comida · zona Guadix/A-92</b></li><li><span>16:30–17:00</span><b>Llegada Hotel Alfonso XIII · check-in · dejar coche</b></li><li><span>19:30</span><b>A pie: Plaza de España → Parque María Luisa → Santa Cruz</b></li><li><span>21:30</span><b>Cena y regreso andando/taxi si hay cansancio</b></li></ul><div class="daily-meals" data-meals="27/8">
-<div class="meal-row"><span>🍽️ 13:30 · Comida</span><b>Atlântico Restaurante · resort</b><small>Comida cómoda al llegar/estar en el resort, con vistas a Santa Eulália. Presupuesto orientativo familia: 80–110 €.</small></div>
-<div class="meal-row"><span>🌙 20:30 · Cena</span><b>Taverna Olhos de Água</b><small>Mediterránea/portuguesa, familiar. Encaja con la salida opcional Olhos de Água + Falésia. Presupuesto orientativo: 70–100 €. Reserva recomendable.</small></div>
-</div><div class="optional-plan"><b>🌅 OPCIONAL · Olhos de Água + Praia da Falésia</b><span>17:30 salida del resort → paseo por Olhos de Água → Praia da Falésia al atardecer → cena por la zona → regreso aprox. 22:15. Sin reserva; se puede cancelar sobre la marcha.</span></div></div>
+<div class="card"><div class="daytop"><div><span class="date">Martes · 25/8</span><h3>Día 1 · Elche → Sevilla</h3></div><span class="pill">España</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno y equipaje final</b></li><li><span>09:30</span><b>Salir de Elche en coche</b></li><li><span>11:45</span><b>Parada 20 min · Lorca/Puerto Lumbreras</b></li><li><span>13:00</span><b>Comida · zona Guadix/A-92</b></li><li><span>16:30–17:00</span><b>Llegada Hotel Alfonso XIII · check-in · dejar coche</b></li><li><span>19:30</span><b>A pie: Plaza de España → Parque María Luisa → Santa Cruz</b></li><li><span>21:30</span><b>Cena y regreso andando/taxi si hay cansancio</b></li></ul></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Miércoles · 26/8</span><h3>Día 2 · Sevilla monumental</h3></div><span class="pill">Sin coche</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno en San Fernando · abierto 07:00–11:00</b></li><li><span>09:10</span><b>Salir andando hacia Real Alcázar</b></li><li><span>09:30</span><b>Real Alcázar · entrada pendiente de compra</b></li><li><span>11:40</span><b>Caminar a Catedral</b></li><li><span>12:00</span><b>Catedral + Giralda · entrada pendiente de compra</b></li><li><span>13:45</span><b>Comida</b></li><li><span>15:15–18:30</span><b>Hotel · piscina · descanso · Pool Bar 11:00–20:00</b></li><li><span>19:00</span><b>Torre del Oro → Guadalquivir → Triana</b></li><li><span>21:30</span><b>Cena · taxi al hotel si hace falta</b></li></ul></div>
 
-<div class="card"><div class="daytop"><div><span class="date">Jueves · 27/8</span><h3>Día 3 · Sevilla → Algarve</h3></div><span class="pill">Cambio horario</span></div><ul class="timeline"><li><span>08:30 ES</span><b>Desayuno · San Fernando abierto 07:00–11:00</b></li><li><span>10:00 ES</span><b>Check-out y recoger coche</b></li><li><span>10:30 ES</span><b>Salida hacia Albufeira</b></li><li><span>Frontera</span><b>🇵🇹 Atrasar reloj 1 hora</b></li><li><span>~12:00 PT</span><b>Llegada Grande Real Santa Eulália · check-in cuando esté disponible</b></li><li><span>13:00 PT</span><b>Comida en resort</b></li><li><span>Tarde</span><b>Playa + piscina · sin más desplazamientos</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">Jueves · 27/8</span><h3>Día 3 · Sevilla → Algarve</h3></div><span class="pill">Cambio horario</span></div><ul class="timeline"><li><span>08:30 ES</span><b>Desayuno · San Fernando abierto 07:00–11:00</b></li><li><span>10:00 ES</span><b>Check-out y recoger coche</b></li><li><span>10:30 ES</span><b>Salida hacia Albufeira</b></li><li><span>Frontera</span><b>🇵🇹 Atrasar reloj 1 hora</b></li><li><span>~12:00 PT</span><b>Llegada Grande Real Santa Eulália · check-in cuando esté disponible</b></li><li><span>13:00 PT</span><b>Comida en resort</b></li><li><span>Tarde</span><b>Playa + piscina · sin más desplazamientos</b></li></ul><div class="daily-meals" data-meals="27/8">
+<div class="meal-row"><span>🍽️ 13:00 PT · Comida</span><b>Atlântico Restaurante · Grande Real Santa Eulália</b><small>Primera comida ya en Portugal, después de llegar al resort. Presupuesto orientativo familia: 80–110 €.</small></div>
+<div class="meal-row"><span>🌙 20:30 PT · Cena</span><b>Taverna Olhos de Água</b><em class="booking-pending">📅 RESERVAR MESA · pendiente</em><small>Mediterránea/portuguesa. Encaja con la salida opcional Olhos de Água + Falésia. Presupuesto orientativo: 70–100 €. Reserva recomendable.</small></div>
+</div><div class="optional-plan"><b>🌅 OPCIONAL · Olhos de Água + Praia da Falésia</b><span>17:30 PT salida del resort → Olhos de Água → Praia da Falésia al atardecer → cena → regreso aprox. 22:15. Sin reserva para la salida.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Viernes · 28/8</span><h3>Día 4 · Algarve · descanso</h3></div><span class="pill">Resort</span></div><ul class="timeline"><li><span>09:00</span><b>Desayuno Real Cozinha · cierra 10:30 PT</b></li><li><span>10:30</span><b>Playa Santa Eulália / piscina</b></li><li><span>13:30</span><b>Comida</b></li><li><span>15:00–18:30</span><b>Descanso y piscina</b></li><li><span>20:30</span><b>Cena</b></li></ul><div class="daily-meals" data-meals="28/8">
 <div class="meal-row"><span>🍽️ 13:30 · Comida</span><b>Pizzeria Artigianale / zona piscina · resort</b><small>Día de piscina/playa: comida informal sin mover el coche. Presupuesto orientativo: 55–75 €.</small></div>
@@ -522,18 +525,18 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 </div><div class="optional-plan"><b>🏖️ OPCIONAL · Tarde completa de resort</b><span>Mantener piscina, playa de Santa Eulália y descanso como prioridad. Sin visitas obligatorias.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Sábado · 29/8</span><h3>Día 5 · Benagil · Marinha · Carvoeiro</h3></div><span class="pill">Coche</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno Real Cozinha · 07:30–10:30 PT</b></li><li><span>09:00</span><b>Salir en coche · excursión Benagil pendiente de reserva</b></li><li><span>Mañana</span><b>Benagil + Praia da Marinha</b></li><li><span>13:30</span><b>Comida en zona Carvoeiro</b></li><li><span>15:30</span><b>Paseo Carvoeiro</b></li><li><span>17:30</span><b>Regreso al resort</b></li><li><span>20:30</span><b>Cena</b></li></ul><div class="daily-meals" data-meals="29/8">
-<div class="meal-row"><span>🍽️ 13:30–14:00 · Comida</span><b>Boneca Bar Restaurante · Carvoeiro</b><small>Tras Benagil/Praia da Marinha, comida portuguesa y pescado en Algar Seco. Presupuesto orientativo: 80–110 €.</small></div>
+<div class="meal-row"><span>🍽️ 13:30–14:00 · Comida</span><b>Boneca Bar Restaurante · Carvoeiro</b><em class="booking-pending">📅 RESERVAR MESA · pendiente</em><small>Tras Benagil/Praia da Marinha, comida portuguesa y pescado en Algar Seco. Presupuesto orientativo: 80–110 €.</small></div>
 <div class="meal-row"><span>🌙 20:30 · Cena</span><b>Real Bar / opción ligera en el resort</b><small>Después del día de excursión, cena sencilla sin volver a salir. Presupuesto orientativo: 55–80 €.</small></div>
 </div><div class="optional-plan"><b>🚤 PRINCIPAL · Benagil + Praia da Marinha + Carvoeiro</b><span>Excursión fuerte del Algarve. Horario definitivo pendiente de cerrar la reserva del barco. No añadir Loulé esta mañana.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Domingo · 30/8</span><h3>Día 6 · Algarve · descanso total</h3></div><span class="pill">Resort</span></div><ul class="timeline"><li><span>09:00</span><b>Desayuno Real Cozinha · cierra 10:30 PT</b></li><li><span>Mañana</span><b>Playa / piscina</b></li><li><span>13:30</span><b>Comida</b></li><li><span>Tarde</span><b>Descanso sin programa obligatorio</b></li><li><span>20:30</span><b>Cena</b></li></ul><div class="daily-meals" data-meals="30/8">
 <div class="meal-row"><span>🍽️ 13:30 · Comida</span><b>Atlântico / comida de playa · resort</b><small>Mantener la mañana de resort y comer allí. Presupuesto orientativo: 70–100 €.</small></div>
-<div class="meal-row"><span>🌙 20:30 · Cena</span><b>MayFlower · Marina de Vilamoura</b><small>Cena con vistas a la marina durante la salida opcional. Abre 12:00–23:00. Presupuesto orientativo: 100–140 €. Reserva recomendable.</small></div>
+<div class="meal-row"><span>🌙 20:30 · Cena</span><b>MayFlower · Marina de Vilamoura</b><em class="booking-pending">📅 RESERVAR MESA · pendiente</em><small>Cena con vistas a la marina durante la salida opcional. Abre 12:00–23:00. Presupuesto orientativo: 100–140 €. Reserva recomendable.</small></div>
 </div><div class="optional-plan"><b>⚓ OPCIONAL · Vilamoura Marina</b><span>18:30 salida del resort → paseo por la marina → cena → regreso aprox. 22:30. Sin entradas ni reserva obligatoria.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Lunes · 31/8</span><h3>Día 7 · Último día Algarve</h3></div><span class="pill">Resort</span></div><ul class="timeline"><li><span>09:00</span><b>Desayuno Real Cozinha · cierra 10:30 PT</b></li><li><span>10:30</span><b>Última mañana de playa/piscina</b></li><li><span>13:30</span><b>Comida</b></li><li><span>17:00</span><b>Preparar equipaje para Mérida</b></li><li><span>20:30</span><b>Cena especial / buffet portugués si está contratado</b></li></ul><div class="daily-meals" data-meals="31/8">
 <div class="meal-row"><span>🍽️ 13:30 · Comida</span><b>Resort · opción flexible</b><small>Último día completo: piscina/playa y comida sin desplazamiento. Presupuesto orientativo: 60–90 €.</small></div>
-<div class="meal-row"><span>🌙 20:30 · Cena</span><b>Frank's Restaurant · Olhos de Água</b><small>Cena final del Algarve, mediterránea/europea y familiar. Presupuesto orientativo: 90–130 €. Reserva recomendable.</small></div>
+<div class="meal-row"><span>🌙 20:30 · Cena</span><b>Frank's Restaurant · Olhos de Água</b><em class="booking-pending">📅 RESERVAR MESA · pendiente</em><small>Cena final del Algarve, mediterránea/europea y familiar. Presupuesto orientativo: 90–130 €. Reserva recomendable.</small></div>
 </div><div class="optional-plan"><b>🏖️ OPCIONAL · Resort / playa / repetir favorito</b><span>Día deliberadamente ligero. Elegir entre resort, playa o repetir alguna zona que nos haya gustado; sin programa cerrado.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Martes · 1/9</span><h3>Día 8 · Algarve → Mérida</h3></div><span class="pill">Cambio horario</span></div><ul class="timeline"><li><span>08:30 PT</span><b>Desayuno Real Cozinha · 07:30–10:30 PT</b></li><li><span>10:00 PT</span><b>Check-out</b></li><li><span>10:30 PT</span><b>Salida hacia Mérida</b></li><li><span>Ruta</span><b>Parada/comida en ruta</b></li><li><span>Frontera</span><b>🇪🇸 Adelantar reloj 1 hora</b></li><li><span>~16:00–16:30 ES</span><b>ILUNION Mérida Palace · check-in · dejar coche</b></li><li><span>18:30</span><b>A pie: Plaza de España → Templo de Diana → Puente Romano</b></li><li><span>21:00</span><b>Cena y hotel</b></li></ul></div>
@@ -568,9 +571,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <ul class="timeline"><li><span>08:00</span><b>Desayuno en el resort</b></li><li><span>09:00</span><b>Salir en coche hacia el punto de embarque</b></li><li><span>09:30–11:30</span><b>Excursión en barco a Benagil · horario exacto pendiente de reserva</b></li><li><span>Después</span><b>Praia da Marinha → comida → Carvoeiro → regreso al resort</b></li></ul>
 <div class="status warn"><b>PENDIENTE DE RESERVA</b><br><span>4 personas · 2 adultos + hijos de 16 y 11 años. Confirmar operador, punto de embarque, duración, política de cancelación y precio final.</span></div></div></section>
 
-
-
-
 <section id="hotels">
 <div class="head"><div><div class="eyebrow">Alojamiento · reservas</div><h2>Hoteles y reservas confirmadas</h2></div><p>Una única vista con hotel, habitación reservada, fechas, precio, condiciones, horarios y enlaces. Las alternativas estudiadas quedan al final, cerradas por defecto.</p></div>
 
@@ -585,11 +585,19 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 </div>
 
 <div class="card hotel">
- <div class="hoteltop"><div><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália Resort & Hotel Spa 5★</h3><div class="hotel-phone"><b>☎️ Recepción</b><a href="tel:+351289598000">+351 289 598 000</a><small>Tocar para llamar</small></div></div></div>
+ <div class="hoteltop"><div><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália Resort & Hotel Spa 5★</h3><div class="hotel-phone"><b>☎️ Recepción</b><a href="tel:+351289598000">+351 289 598 000</a><small>Tocar para llamar</small></div><div class="pending-confirmation">
+<b>🟠 Pendientes de confirmación del hotel</b>
+<ul>
+<li><strong>Ubicación de las villas/habitaciones:</strong> confirmar que las dos unidades reservadas estén adyacentes; si no es posible, lo más próximas posible.</li>
+<li><strong>Real Spa Therapy / talasoterapia:</strong> confirmar qué incluye exactamente nuestra tarifa de villa (circuito de talasoterapia, sauna y hammam), número de accesos por huésped/estancia, necesidad de reserva, posibles suplementos y restricciones de edad para 16 y 11 años.</li>
+<li><strong>Excursión Benagil:</strong> confirmar si los operadores pueden recoger directamente en el Grande Real Santa Eulália y cuál es el punto exacto recomendado de recogida (recepción/entrada u otro).</li>
+</ul>
+<small>📧 Consulta enviada al hotel el 17/08/2026 · pendiente de respuesta escrita.</small>
+</div></div></div>
  <p>Albufeira · acceso directo a Praia de Santa Eulália · resort familiar.</p>
  <div class="room"><b>2 × One Bedroom Deluxe Villa</b><br>Cada villa tiene 43 m², dormitorio independiente, salón con kitchenette, baño y balcón/terraza con vistas al resort. Sofá cama, dos televisores, Nespresso, microondas, frigorífico, placa eléctrica, hervidor y tostadora SMEG.<br><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/accommodation/villas/">Ver One Bedroom Deluxe Villa oficial</a></div>
  <div class="room"><b>Horarios:</b> desayuno Real Cozinha 07:30–10:30 PT · 4 piscinas exteriores de adultos + 3 infantiles · confirmar horario exacto de piscinas exteriores en recepción.</div>
- <div class="ev-charge"><b>🔌 Carga Lexus PHEV</b><span>El resort confirma puntos de carga en el parking, con suplemento. Hay 4 conectores Type 2 de hasta 22 kW registrados.</span><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+EV+charging">Ver carga en Maps</a></div><div class="status ok"><b>CONFIRMADO</b><br><span>27/8–1/9 · 5 noches · Bed & Breakfast · total 3.533,50 € + 40 € de tasas locales previstas. Cancelación gratuita hasta 24/08/2026. Villas juntas/próximas solicitadas.</span></div>
+ <div class="ev-charge"><b>🔌 Carga Lexus PHEV</b><span>El resort confirma puntos de carga en el parking, con suplemento. Hay 4 conectores Type 2 de hasta 22 kW registrados.</span><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+EV+charging">Ver carga en Maps</a></div><div class="spa-note"><b>💧 Talasoterapia / Spa</b><span>El circuito de talasoterapia del spa tiene condiciones específicas de acceso y puede requerir reserva y un suplemento.</span></div><div class="status ok"><b>CONFIRMADO</b><br><span>27/8–1/9 · 5 noches · Bed & Breakfast · total 3.533,50 € + 40 € de tasas locales previstas. Cancelación gratuita hasta 24/08/2026. Villas juntas/próximas solicitadas.</span></div>
  <div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+Albufeira">Maps</a><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/">Hotel</a></div>
 </div>
 
@@ -637,9 +645,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
  </div>
 </details>
 </section>
-
-
-
 
 <section id="routes">
 <div class="head"><div><div class="eyebrow">En coche</div><h2>Rutas</h2></div><p>Google Maps recalcula tráfico y duración en tiempo real.</p></div>
@@ -726,10 +731,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <div class="note"><b>Regla:</b> si Google Maps modifica sustancialmente la ruta por tráfico, obras o accidente, seguir la navegación y no forzar una salida prevista. Los puntos kilométricos quedan como referencia para reconocer la parada.</div>
 <div class="head ev-route-head"><div><div class="eyebrow">Lexus híbrido enchufable</div><h2>Plan de carga eléctrica</h2></div><p>Priorizamos cargar mientras el coche está aparcado para no añadir esperas.</p></div><div class="ev-plan-grid"><div class="ev-plan-card"><b>Sevilla</b><span>🔌 Hotel Alfonso XIII</span><small>Cargar durante la estancia.</small></div><div class="ev-plan-card"><b>Algarve</b><span>🔌 Grande Real Santa Eulália</span><small>Type 2 disponible; aprovechar las noches.</small></div><div class="ev-plan-card"><b>Mérida</b><span>🔌 ILUNION Mérida Palace</span><small>Solicitar carga al aparcacoches.</small></div><div class="ev-plan-card"><b>Toledo</b><span>⚠️ Confirmar en Cigarral</span><small>Llevar cable/adaptador; alternativa pública cercana.</small></div></div><div class="note"><b>Estrategia PHEV:</b> cargar principalmente en destino y evitar paradas exclusivas de recarga salvo que resulten cómodas.</div><div class="head fair-head"><div><div class="eyebrow">Mérida · 1–3 septiembre</div><h2>Feria 2026 · plan integrado</h2></div><p>La feria se aprovecha como complemento sin sacrificar las visitas monumentales.</p></div><div class="fair-grid"><div class="fair-card"><b>1 SEP · Llegada</b><span>🎡 Inicio de la Feria</span><small>Llegada prevista 16:00. Entregar coche al valet y check-in. Por la noche, paseo por Plaza de España/centro si apetece.</small></div><div class="fair-card"><b>2 SEP · Noche</b><span>🎤 DePol · Acueducto de los Milagros</span><small>Concierto gratuito anunciado para el 2 de septiembre. Opción nocturna después de las visitas; no requiere entrada.</small></div><div class="fair-card"><b>Movilidad</b><span>🚕 Coche aparcado</span><small>Priorizar caminar/taxi. El recinto ferial es accesible a pie desde el centro y el Ayuntamiento prevé autobuses.</small></div><div class="fair-card"><b>3 SEP · Salida</b><span>🚘 Avisar 30 min antes</span><small>Pedir el Lexus al valet con margen antes de salir hacia Toledo, especialmente si hay cortes.</small></div></div></section>
 
-
-
-
-
 <section id="portugal">
 <div class="head"><div><div class="eyebrow">Frontera y coche</div><h2>Entrar en Portugal</h2></div><p>Checklist específico para el Lexus RX 450h y el cruce desde Sevilla hacia el Algarve.</p></div>
 <div class="card">
@@ -743,7 +744,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 </div>
 <div class="note"><b>Peajes:</b> la A22 es gratuita, pero otras autopistas portuguesas pueden seguir teniendo peaje. Si el itinerario cambia, Google Maps debe revisarse antes de entrar en una autopista distinta de la A22.</div>
 </section>
-
 
 <section id="budget">
 <div class="head"><div><div class="eyebrow">Presupuesto · gastos reales</div><h2>Coste del viaje y tickets</h2></div><p>Importes confirmados separados de las previsiones para no mezclar cifras ciertas con estimaciones.</p></div>
@@ -807,9 +807,6 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 </div>
 <div class="note"><b>Actividad pendiente:</b> Excursión Benagil · 29/08 · 4 personas · coste pendiente de compra.</div><div class="note food-budget"><b>🍽️ Presupuesto comidas Algarve:</b> reservar aproximadamente <strong>750–1.065 €</strong> para las 5 comidas + 5 cenas de los cuatro. El desayuno ya está incluido en el hotel. Los importes son estimaciones de planificación y se sustituirán por tickets reales.</div></section>
 
-
-
-
 <section id="check">
 <div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
 <div class="checks" id="checks">
@@ -831,7 +828,14 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <label class="check"><input type="checkbox"><span>A22 sin peaje confirmada; revisar peajes solo si cambia la ruta</span></label>
 <label class="check"><input type="checkbox"><span>Rutas revisadas antes de cada etapa</span></label>
 <label class="check"><input type="checkbox"><span>Documentación y equipaje listos</span></label>
-</div><div class="note" id="progress">0 tareas completadas.</div><label class="check"><input type="checkbox"><span><b>Reservar excursión Benagil · 29/08/2026</b><small>4 personas · confirmar operador, horario, embarque y cancelación.</small></span></label></section>
+</div><div class="note" id="progress">0 tareas completadas.</div><label class="check"><input type="checkbox"><span><b>Reservar excursión Benagil · 29/08/2026</b><small>4 personas · confirmar operador, horario, embarque y cancelación.</small></span></label><div class="restaurant-booking-check">
+<h3>🍽️ Reservas de comidas/cenas fuera del resort</h3>
+<p><b>Pendiente:</b> cerrar las mesas cuando estén confirmados los planes/horarios definitivos. Siempre para 4 personas.</p>
+<label class="check"><input type="checkbox"><span><b>Taverna Olhos de Água</b><small>27/08 · cena ~20:30 PT · ligada a Olhos de Água + Falésia.</small></span></label>
+<label class="check"><input type="checkbox"><span><b>Boneca Bar · Carvoeiro</b><small>29/08 · comida ~13:30–14:00 PT · ajustar a la hora definitiva de Benagil.</small></span></label>
+<label class="check"><input type="checkbox"><span><b>MayFlower · Vilamoura Marina</b><small>30/08 · cena ~20:30 PT · ligada a salida opcional a Vilamoura.</small></span></label>
+<label class="check"><input type="checkbox"><span><b>Frank's · Olhos de Água</b><small>31/08 · cena ~20:30 PT · cena final del Algarve.</small></span></label>
+</div></section>
 </main>
 <script>
 const buttons=[...document.querySelectorAll('nav button')];
@@ -914,15 +918,11 @@ boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=
    const fill=document.getElementById('tripProgressFill'), text=document.getElementById('tripProgressText');
    if(fill) fill.style.width=pct+'%';
    if(text){
-     if(now<start) text.textContent='Viaje del 25 de agosto al 5 de septiembre de 2026 · todo preparado';
-     else if(now>end) text.textContent='Viaje finalizado · 100% completado';
+     if(now<start) text.textContent='Viaje del 25 de agosto al 5 de septiembre de 2026 · todo preparado'; else if(now>end) text.textContent='Viaje finalizado · 100% completado';
      else text.textContent='Viaje en curso · '+pct+'% del calendario completado';
    }
    // Highlight matching date text in day cards while travelling.
-   if(now>=start && now<=end){
-     const d=now.getDate(), months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-     const needle=d+' '+months[now.getMonth()];
-     document.querySelectorAll('#plan .day,#plan .card').forEach(c=>{
+   if(now>=start && now<=end){ const d=now.getDate(), months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre']; const needle=d+' '+months[now.getMonth()]; document.querySelectorAll('#plan .day,#plan .card').forEach(c=>{
        if(c.textContent.toLowerCase().includes(needle)){
          c.classList.add('today-card');
          const top=c.querySelector('.daytop')||c;
@@ -953,7 +953,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  });
 });
 </script>
-
 
 <script id="mobile-hamburger-js-v5">
 document.addEventListener('DOMContentLoaded',()=>{
