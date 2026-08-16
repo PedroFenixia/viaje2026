@@ -450,11 +450,31 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 }
 </style>
 
+
+<style id="mobile-menu-active-fix">
+@media(max-width:700px){
+  #mainNav button.active,
+  #mainNav button.active:hover,
+  #mainNav button.active:focus,
+  #mainNav button.active:active{
+    background:#e7f0f3 !important;
+    color:var(--a) !important;
+    border-color:#b9cdd6 !important;
+    box-shadow:inset 4px 0 0 var(--b),0 3px 10px rgba(20,53,72,.06) !important;
+  }
+  #mainNav button.active *,
+  #mainNav button.active:hover *,
+  #mainNav button.active:focus *{
+    color:var(--a) !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap">
 <div class="eyebrow" style="color:#dcebf0">Viaje familiar · 2026</div>
-<h1>Sevilla · Algarve · Mérida · Toledo</h1><p class="mobile-subtitle">Optimizado y renderizado para móvil</p>
+<h1>Sevilla · Algarve · Mérida · Toledo</h1><p class="mobile-subtitle">Por los 50 ...</p>
 <p>Planning vivo del viaje desde Elche, con hoteles, alternativas, visitas, entradas y rutas de Google Maps.</p>
 <div class="badges"><span class="badge">25/8–5/9</span><span class="badge">11 noches</span><span class="badge">2 Sevilla + 5 Algarve + 2 Mérida + 2 Toledo</span><span class="badge">2 adultos + 11 y 16 años</span></div>
 </div><div class="trip-progress" id="tripProgress"><div class="bar"><div class="fill" id="tripProgressFill"></div></div><small id="tripProgressText">Viaje del 25 de agosto al 5 de septiembre de 2026</small></div></header>
