@@ -171,6 +171,38 @@ button,a{touch-action:manipulation}
 }
 </style>
 
+
+<style id="expense-css">
+.expense-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.expense-grid label{display:flex;flex-direction:column;gap:6px;font-weight:700}
+.expense-grid label span{font-size:13px}
+.expense-grid .full{grid-column:1/-1}
+.expense-grid input,.expense-grid select,.expense-grid textarea{width:100%;min-height:44px;padding:10px 12px;border:1px solid rgba(127,127,127,.3);border-radius:10px;font:inherit;background:var(--card,#fff);color:inherit}
+.expense-grid textarea{resize:vertical}
+.ticket-preview{margin:12px 0}
+.ticket-preview img{max-height:280px;border-radius:12px;border:1px solid rgba(127,127,127,.25)}
+.expense-row{display:grid;grid-template-columns:70px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(127,127,127,.18)}
+.expense-row:last-child{border-bottom:0}
+.expense-row img{width:58px;height:58px;object-fit:cover;border-radius:8px}
+.expense-row .amount{font-weight:800;white-space:nowrap}
+.expense-row button{min-height:38px}
+@media(max-width:600px){
+ .expense-grid{grid-template-columns:1fr}
+ .expense-grid .full{grid-column:auto}
+ .expense-row{grid-template-columns:58px minmax(0,1fr) auto}
+ .expense-row .delete-expense{grid-column:2/-1;width:100%}
+}
+</style>
+
+
+<style id="hotel-alternatives-css">
+.alternatives-collapsed{margin-top:22px;border:1px solid rgba(127,127,127,.25);border-radius:16px;overflow:hidden}
+.alternatives-collapsed>summary{cursor:pointer;padding:16px 18px;font-weight:800;list-style-position:inside;user-select:none}
+.alternatives-collapsed[open]>summary{border-bottom:1px solid rgba(127,127,127,.2)}
+.alternatives-grid{padding:16px}
+@media(max-width:600px){.alternatives-collapsed>summary{padding:14px}.alternatives-grid{padding:10px}}
+</style>
+
 </head>
 <body>
 <header class="hero"><div class="wrap">
@@ -180,7 +212,7 @@ button,a{touch-action:manipulation}
 <div class="badges"><span class="badge">25/8–5/9</span><span class="badge">11 noches</span><span class="badge">2 Sevilla + 5 Algarve + 2 Mérida + 2 Toledo</span><span class="badge">2 adultos + 11 y 16 años</span></div>
 </div></header>
 <nav><div class="wrap">
-<button class="active" data-tab="plan">Itinerario</button><button data-tab="days">Día a día</button><button data-tab="hotels">Hoteles</button><button data-tab="confirmed">Reservas</button><button data-tab="status">Estado hoteles</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas</button><button data-tab="stops">Paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto</button><button data-tab="check">Checklist</button>
+<button class="active" data-tab="plan">Itinerario</button><button data-tab="days">Día a día</button><button data-tab="hotels">Hoteles</button><button data-tab="confirmed">Reservas</button><button data-tab="status">Estado hoteles</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas</button><button data-tab="stops">Paradas</button><button data-tab="portugal">Portugal</button><button data-tab="budget">Presupuesto</button><button data-tab="expenses">Tickets</button><button data-tab="check">Checklist</button>
 </div></nav>
 <main>
 
@@ -232,16 +264,55 @@ button,a{touch-action:manipulation}
 </section>
 
 <section id="hotels">
-<div class="head"><div><div class="eyebrow">Alojamiento</div><h2>Hoteles y alternativas</h2></div><p>El Algarve mantiene varias opciones abiertas por la disponibilidad limitada de VILALARA.</p></div>
+<div class="head"><div><div class="eyebrow">Alojamiento</div><h2>Hoteles reservados</h2></div><p>Vista principal: únicamente los hoteles y habitaciones finalmente reservados. Las alternativas descartadas quedan al final, cerradas por defecto.</p></div>
+
 <div class="hotelgrid">
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Sevilla · confirmado</span><h3>Hotel Alfonso XIII 5★</h3></div></div><p>Centro monumental, piscina y excelente ubicación para visitar a pie.</p><div class="room"><b>Reservado:</b> Premium Suite, 1 Bedroom, 1 Super King · 2 adultos + 2 hijos · Flexible Rate with Breakfast.</div><div class="status ok"><b>CONFIRMADO</b><br><span>25–27/8 · total 2.134 €. Cancelación gratuita hasta 24/08/2026 a las 23:59. Dos camas extra y desayuno para cuatro solicitados por escrito al hotel.</span></div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Alfonso+XIII+Sevilla">Maps</a><a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/overview/">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália 5★</h3></div></div><p>Resort 5★ en Albufeira, con acceso directo a Praia de Santa Eulália.</p><div class="room"><b>Reservado:</b> 2 × One Bedroom Deluxe Villa · Bed & Breakfast · 27/8–1/9.</div><div class="status ok"><b>CONFIRMADO</b><br><span>Total previsto: 3.573,50 €. Cancelación gratuita hasta 24/08/2026. Solicitud de villas juntas/próximas enviada.</span></div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+Albufeira">Maps</a><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 1</span><h3>Pine Cliffs Ocean Suites 5★</h3></div></div><p>Praia da Falésia, apartamento real y resort de gran nivel.</p><div class="room"><b>Objetivo:</b> 2 Bedroom Ocean Suite.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pine+Cliffs+Ocean+Suites+Algarve">Maps</a><a target="_blank" href="https://www.pinecliffs.com/en/accommodation/ocean-suites-a-luxury-collection-resort/">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 2</span><h3>Martinhal Sagres 5★</h3></div></div><p>Excelente opción familiar y playa muy próxima.</p><div class="room"><b>Objetivo:</b> Ocean House 2 Bedrooms · Sea View.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Martinhal+Sagres">Maps</a><a target="_blank" href="https://www.martinhal.com/es/hoteles/sagres/">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 3</span><h3>EPIC SANA Algarve 5★</h3></div></div><p>Praia da Falésia y buena solución con habitaciones comunicadas.</p><div class="room"><b>Objetivo:</b> Family Room / 2 habitaciones comunicadas.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve">Maps</a><a target="_blank" href="https://sanahotels.com/es/hotel/epic-sana-algarve/">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Mérida</span><h3>ILUNION Mérida Palace 5★</h3><div class="room"><b>Habitaciones reservadas · 2 × Doble Estándar</b><br>Cada habitación tiene 25 m² y capacidad máxima de 2 personas. Puede configurarse con dos camas individuales de 1 × 2 m o una cama doble de 2 × 2 m. Incluye nevera, bañera, Wi‑Fi, TV, teléfono y climatización. Hemos solicitado habitaciones comunicadas/contiguas o, en su defecto, próximas y en la misma planta.<br><a target="_blank" href="https://www.ilunionhotels.com/hoteles/ilunion-merida-palace">Ver habitación Doble Estándar oficial</a></div><div class="room"><b>Horarios:</b> desayuno lunes–viernes 07:30–11:00 · piscina exterior de azotea 10:00–22:00, en temporada y sujeta a meteorología.</div></div></div><p>Plaza de España y visitas romanas a pie.</p><div class="room"><b>Objetivo:</b> 2 habitaciones comunicadas/contiguas.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=ILUNION+Merida+Palace">Maps</a><a target="_blank" href="https://www.ilunionhotels.com/hoteles/ilunion-merida-palace">Web</a></div></div>
-<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Toledo · confirmado</span><h3>Hotel Cigarral El Bosque</h3><div class="room"><b>Habitaciones reservadas · 2 × Confort</b><br>Cada habitación Confort tiene 28 m², es amplia y tranquila y dispone de terraza con vistas al casco antiguo o a los jardines del Cigarral. Equipamiento: aire acondicionado, TV, minibar de pago, caja fuerte, Wi‑Fi, bañera y ducha independientes, secador y espejo de maquillaje. Hemos solicitado habitaciones comunicadas/contiguas o próximas y en la misma planta.<br><a target="_blank" href="https://www.hotelcigarralelbosque.com/rooms/confort-7730/">Ver habitación Confort oficial</a> · <a target="_blank" href="https://www.hotelcigarralelbosque.com/habitaciones/">Ver todas las habitaciones</a></div><div class="room"><b>Horarios:</b> desayuno buffet 07:30–11:00 entre semana (fuente secundaria; confirmar al check-in) · piscina exterior de temporada; referencia publicada 09:00–21:00, pendiente de reconfirmar en recepción para septiembre.</div></div></div><p>Opción seleccionada para cerrar el viaje, con piscina y buena accesibilidad en coche.</p><div class="room"><b>Seleccionado:</b> 2 habitaciones Confort · 3–5/9 · desayuno incluido.</div><div class="status ok"><b>CONFIRMADO</b><br><span>3–5/9 · 2 noches · 2 habitaciones Confort · desayuno incluido · total 804 €. Pago en el establecimiento; tarjeta solo como garantía. Cancelación gratuita hasta el 02/09/2026. Solicitadas habitaciones comunicadas/contiguas o, en su defecto, lo más próximas posible y en la misma planta.</span></div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Cigarral+El+Bosque+Toledo">Maps</a></div></div>
-</div></section>
+<div class="card hotel">
+ <div class="hoteltop"><div><span class="eyebrow">Sevilla · confirmado</span><h3>Hotel Alfonso XIII 5★</h3></div></div>
+ <p>Centro monumental · piscina · visitas principales a pie.</p>
+ <div class="room"><b>Premium Suite · 1 dormitorio · 1 King Super</b><br>Suite de 50–64 m² según la ficha mostrada en la reserva, con dormitorio y sala de estar separados, cama King, capacidad máxima 4, hasta 2 camas extra/cunas, baño con ducha y tocador doble, amenities Byredo, Nespresso, minibar y servicio de habitaciones 24 h.<br><a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/rooms/">Ver habitación/suites oficiales</a> · <a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/photos/">Fotos oficiales</a></div>
+ <div class="room"><b>Horarios:</b> desayuno San Fernando 07:00–11:00 · Pool Bar 11:00–20:00 · confirmar horario exacto de piscina en recepción.</div>
+ <div class="status ok"><b>CONFIRMADO</b><br><span>25–27/8 · 2 noches · Flexible Rate with Breakfast · total 2.134 €. Cancelación gratuita hasta 24/08/2026 23:59. Camas extra y desayuno para cuatro solicitados.</span></div>
+ <div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Alfonso+XIII+Sevilla">Maps</a><a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/overview/">Hotel</a></div>
+</div>
+
+<div class="card hotel">
+ <div class="hoteltop"><div><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália Resort & Hotel Spa 5★</h3></div></div>
+ <p>Albufeira · acceso directo a Praia de Santa Eulália · resort familiar.</p>
+ <div class="room"><b>2 × One Bedroom Deluxe Villa</b><br>Cada villa tiene 43 m², dormitorio independiente, salón con kitchenette, baño y balcón/terraza con vistas al resort. Sofá cama, dos televisores, Nespresso, microondas, frigorífico, placa eléctrica, hervidor y tostadora SMEG.<br><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/accommodation/villas/">Ver One Bedroom Deluxe Villa oficial</a></div>
+ <div class="room"><b>Horarios:</b> desayuno Real Cozinha 07:30–10:30 PT · 4 piscinas exteriores de adultos + 3 infantiles · confirmar horario exacto de piscinas exteriores en recepción.</div>
+ <div class="status ok"><b>CONFIRMADO</b><br><span>27/8–1/9 · 5 noches · Bed & Breakfast · total 3.533,50 € + 40 € de tasas locales previstas. Cancelación gratuita hasta 24/08/2026. Villas juntas/próximas solicitadas.</span></div>
+ <div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+Albufeira">Maps</a><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/">Hotel</a></div>
+</div>
+
+<div class="card hotel">
+ <div class="hoteltop"><div><span class="eyebrow">Mérida · confirmado</span><h3>ILUNION Mérida Palace 5★</h3></div></div>
+ <p>Plaza de España · ubicación ideal para recorrer Mérida a pie.</p>
+ <div class="room"><b>2 × Habitación Doble Estándar</b><br>Cada habitación tiene 25 m² y capacidad máxima de 2 personas. Configuración con dos camas individuales de 1 × 2 m o una doble de 2 × 2 m. Nevera, bañera, Wi‑Fi, TV, teléfono y climatización. Solicitadas comunicadas/contiguas o próximas en la misma planta.<br><a target="_blank" href="https://www.ilunionhotels.com/hoteles/ilunion-merida-palace">Ver Doble Estándar oficial</a></div>
+ <div class="room"><b>Horarios:</b> desayuno 07:30–11:00 · piscina exterior de azotea 10:00–22:00, en temporada y sujeta a meteorología.</div>
+ <div class="status ok"><b>CONFIRMADO</b><br><span>1–3/9 · 2 noches · alojamiento y desayuno · llegada indicada 16:00 · total 598,40 € impuestos incluidos. Cancelación gratuita hasta 25/08/2026.</span></div>
+ <div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=ILUNION+Merida+Palace">Maps</a><a target="_blank" href="https://www.ilunionhotels.com/hoteles/ilunion-merida-palace">Hotel</a></div>
+</div>
+
+<div class="card hotel">
+ <div class="hoteltop"><div><span class="eyebrow">Toledo · confirmado</span><h3>Hotel Cigarral El Bosque</h3></div></div>
+ <p>Cigarral con piscina · coche aparcado y taxi para entrar al casco histórico.</p>
+ <div class="room"><b>2 × Habitación Confort</b><br>Cada habitación tiene 28 m², terraza con vistas al casco antiguo o jardines, aire acondicionado, TV, minibar, caja fuerte, Wi‑Fi, bañera y ducha independientes, secador y espejo de maquillaje. Solicitadas comunicadas/contiguas o próximas en la misma planta.<br><a target="_blank" href="https://www.hotelcigarralelbosque.com/rooms/confort-7730/">Ver Habitación Confort oficial</a></div>
+ <div class="room"><b>Horarios:</b> desayuno buffet · confirmar horario al check-in · piscina exterior de temporada; confirmar horario exacto en recepción.</div>
+ <div class="status ok"><b>CONFIRMADO</b><br><span>3–5/9 · 2 noches · desayuno incluido · total 804 €. Pago en establecimiento. Cancelación gratuita hasta 02/09/2026.</span></div>
+ <div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Cigarral+El+Bosque+Toledo">Maps</a><a target="_blank" href="https://www.hotelcigarralelbosque.com/">Hotel</a></div>
+</div>
+</div>
+
+<details class="alternatives-collapsed">
+ <summary>Alternativas descartadas / estudiadas</summary>
+ <div class="hotelgrid alternatives-grid">
+  <div class="card hotel"><span class="eyebrow">Algarve · alternativa descartada</span><h3>Pine Cliffs Ocean Suites 5★</h3><p>Se estudió 2 Bedroom Ocean Suite en Praia da Falésia.</p><div class="actions"><a target="_blank" href="https://www.pinecliffs.com/en/accommodation/ocean-suites-a-luxury-collection-resort/">Ver hotel</a></div></div>
+  <div class="card hotel"><span class="eyebrow">Algarve · alternativa descartada</span><h3>Martinhal Sagres 5★</h3><p>Se estudió Ocean House 2 Bedrooms · Sea View.</p><div class="actions"><a target="_blank" href="https://www.martinhal.com/es/hoteles/sagres/">Ver hotel</a></div></div>
+  <div class="card hotel"><span class="eyebrow">Algarve · alternativa descartada</span><h3>EPIC SANA Algarve 5★</h3><p>Se estudió Family Room / dos habitaciones comunicadas.</p><div class="actions"><a target="_blank" href="https://sanahotels.com/es/hotel/epic-sana-algarve/">Ver hotel</a></div></div>
+ </div>
+</details>
+</section>
 
 <section id="confirmed">
 <div class="head"><div><div class="eyebrow">Confirmaciones</div><h2>Reservas confirmadas</h2></div><p>Resumen público sin localizadores ni datos personales.</p></div>
@@ -410,6 +481,37 @@ button,a{touch-action:manipulation}
 <div class="note"><b>Coste mínimo confirmado actualmente: 7.109,90 €.</b> El “total final previsto” se actualizará automáticamente en esta sección conforme cerremos entradas, taxis, combustible, comidas y actividades.</div>
 </section>
 
+
+<section id="expenses">
+<div class="head"><div><div class="eyebrow">Gastos reales</div><h2>Tickets y gastos</h2></div><p>Haz una foto del ticket, introduce el importe y queda guardado en este dispositivo. Los datos se almacenan localmente en el navegador.</p></div>
+
+<div class="card expense-form">
+<h3>➕ Añadir gasto</h3>
+<div class="expense-grid">
+<label><span>Fecha</span><input id="expDate" type="date"></label>
+<label><span>Categoría</span><select id="expCategory"><option>Restaurante</option><option>Combustible</option><option>Parking</option><option>Taxi</option><option>Entradas</option><option>Hotel</option><option>Supermercado</option><option>Peajes</option><option>Actividad</option><option>Otros</option></select></label>
+<label><span>Concepto</span><input id="expConcept" type="text" placeholder="Ej. Cena en Toledo"></label>
+<label><span>Importe (€)</span><input id="expAmount" type="number" inputmode="decimal" step="0.01" min="0" placeholder="0,00"></label>
+<label class="full"><span>Foto del ticket</span><input id="expPhoto" type="file" accept="image/*" capture="environment"><small>En iPhone puedes hacer la foto directamente con la cámara.</small></label>
+<label class="full"><span>Notas</span><textarea id="expNotes" rows="2" placeholder="Opcional"></textarea></label>
+</div>
+<div id="expPreviewWrap" class="ticket-preview" hidden><img id="expPreview" alt="Vista previa del ticket"></div>
+<div class="actions"><button type="button" id="saveExpense">Guardar gasto</button></div>
+<div class="note"><b>Privacidad:</b> los tickets no se suben a la web ni a Vercel; se guardan únicamente en el navegador del dispositivo. Si borras los datos del navegador o cambias de móvil, no se transfieren automáticamente.</div>
+</div>
+
+<div class="metrics expense-metrics">
+<div class="metric"><b id="expenseTotal">0,00 €</b><span>Gastos registrados</span></div>
+<div class="metric"><b id="expenseCount">0</b><span>Tickets</span></div>
+<div class="metric"><b id="tripRunningTotal">7.109,90 €</b><span>Hoteles + gastos</span></div>
+</div>
+
+<div class="card">
+<div class="daytop"><div><span class="date">Registro</span><h3>Mis gastos</h3></div><button type="button" id="exportExpenses">Exportar CSV</button></div>
+<div id="expenseList"><p class="muted">Todavía no hay gastos registrados.</p></div>
+</div>
+</section>
+
 <section id="check">
 <div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
 <div class="checks" id="checks">
@@ -440,4 +542,58 @@ const boxes=[...document.querySelectorAll('#checks input')],p=document.getElemen
 function up(){let n=boxes.filter(x=>x.checked).length;p.textContent=`${n} de ${boxes.length} tareas completadas.`}
 boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=()=>{localStorage.setItem('v26-'+i,x.checked?'1':'0');up()}});up();
 </script>
+
+<script id="expense-js">
+(function(){
+ const DB='viaje2026-expenses', STORE='expenses', HOTEL_TOTAL=7109.90;
+ let db;
+ function openDB(){
+   return new Promise((resolve,reject)=>{
+     const r=indexedDB.open(DB,1);
+     r.onupgradeneeded=()=>{ if(!r.result.objectStoreNames.contains(STORE)) r.result.createObjectStore(STORE,{keyPath:'id',autoIncrement:true}); };
+     r.onsuccess=()=>{db=r.result;resolve(db)}; r.onerror=()=>reject(r.error);
+   });
+ }
+ function tx(mode='readonly'){return db.transaction(STORE,mode).objectStore(STORE)}
+ function all(){return new Promise((res,rej)=>{const r=tx().getAll();r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+ function add(v){return new Promise((res,rej)=>{const r=tx('readwrite').add(v);r.onsuccess=()=>res();r.onerror=()=>rej(r.error)})}
+ function del(id){return new Promise((res,rej)=>{const r=tx('readwrite').delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error)})}
+ const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n||0);
+ function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+ async function render(){
+   const rows=(await all()).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+   const total=rows.reduce((s,x)=>s+Number(x.amount||0),0);
+   document.getElementById('expenseTotal').textContent=euro(total);
+   document.getElementById('expenseCount').textContent=rows.length;
+   document.getElementById('tripRunningTotal').textContent=euro(HOTEL_TOTAL+total);
+   const box=document.getElementById('expenseList');
+   if(!rows.length){box.innerHTML='<p class="muted">Todavía no hay gastos registrados.</p>';return}
+   box.innerHTML=rows.map(x=>{
+     const img=x.photo?`<img src="${URL.createObjectURL(x.photo)}" alt="Ticket">`:'<div></div>';
+     return `<div class="expense-row">${img}<div><b>${esc(x.concept)}</b><br><small>${esc(x.date)} · ${esc(x.category)}${x.notes?' · '+esc(x.notes):''}</small></div><div class="amount">${euro(Number(x.amount))}</div><button class="delete-expense" data-id="${x.id}">Eliminar</button></div>`
+   }).join('');
+   box.querySelectorAll('.delete-expense').forEach(b=>b.onclick=async()=>{if(confirm('¿Eliminar este gasto?')){await del(Number(b.dataset.id));render()}});
+ }
+ document.addEventListener('DOMContentLoaded',async()=>{
+   if(!('indexedDB' in window)) return;
+   await openDB();
+   const d=document.getElementById('expDate'); if(d&&!d.value)d.value=new Date().toISOString().slice(0,10);
+   const photo=document.getElementById('expPhoto');
+   photo?.addEventListener('change',()=>{const f=photo.files[0],w=document.getElementById('expPreviewWrap'),i=document.getElementById('expPreview');if(f){i.src=URL.createObjectURL(f);w.hidden=false}else w.hidden=true});
+   document.getElementById('saveExpense')?.addEventListener('click',async()=>{
+     const amount=parseFloat(document.getElementById('expAmount').value), concept=document.getElementById('expConcept').value.trim();
+     if(!concept||!Number.isFinite(amount)){alert('Introduce concepto e importe.');return}
+     await add({date:d.value,category:document.getElementById('expCategory').value,concept,amount,notes:document.getElementById('expNotes').value.trim(),photo:photo.files[0]||null,created:Date.now()});
+     document.getElementById('expConcept').value='';document.getElementById('expAmount').value='';document.getElementById('expNotes').value='';photo.value='';document.getElementById('expPreviewWrap').hidden=true;render();
+   });
+   document.getElementById('exportExpenses')?.addEventListener('click',async()=>{
+     const rows=await all(), q=s=>'"'+String(s??'').replaceAll('"','""')+'"';
+     const csv=['Fecha,Categoría,Concepto,Importe,Notas',...rows.map(x=>[x.date,x.category,x.concept,x.amount,x.notes].map(q).join(','))].join('\n');
+     const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}));a.download='gastos-viaje-2026.csv';a.click();
+   });
+   render();
+ });
+})();
+</script>
+
 </body></html>
