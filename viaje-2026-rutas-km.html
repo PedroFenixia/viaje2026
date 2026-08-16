@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#173f59">
+<title>Viaje 2026 · Sevilla · Algarve · Mérida</title>
+<style>
+:root{--bg:#f4f7f9;--card:#fff;--ink:#1e2a34;--muted:#6d7983;--line:#dde5ea;--a:#173f59;--b:#2d7d78;--sand:#f6efe4;--shadow:0 14px 32px rgba(27,58,77,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}
+a{color:#09658f;text-decoration:none;font-weight:700}a:hover{text-decoration:underline}
+.hero{padding:72px 22px 58px;background:linear-gradient(135deg,#17364f,#205970 58%,#2b756e);color:#fff}
+.wrap,main{max-width:1160px;margin:auto}.hero h1{font-size:clamp(38px,7vw,70px);line-height:1;margin:12px 0 20px;letter-spacing:-.04em}.hero p{max-width:780px;color:#e8f0f3;font-size:18px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.badge{border:1px solid #ffffff33;background:#ffffff12;padding:9px 13px;border-radius:999px}
+nav{position:sticky;top:0;z-index:5;background:#fffffff2;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}nav .wrap{display:flex;gap:7px;overflow:auto;padding:13px 18px}
+nav button{border:0;background:transparent;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;white-space:nowrap}nav button.active{background:var(--a);color:#fff}
+main{padding:42px 20px 80px}section{display:none}section.active{display:block}.head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:26px}.head h2{font-size:32px;margin:0}.head p{max-width:610px;color:var(--muted);margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}.metric,.card,.route,.check{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.metric{padding:20px}.metric b{font-size:28px;display:block}.metric span,.muted{color:var(--muted)}
+.daygrid,.routes{display:grid;gap:18px}.card{padding:23px}.daytop,.hoteltop,.route{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.date,.eyebrow{text-transform:uppercase;letter-spacing:.1em;color:var(--b);font-size:12px;font-weight:900}.card h3{margin:4px 0 0;font-size:21px}.pill{background:#eef4f6;border:1px solid #dce7eb;border-radius:999px;padding:8px 11px;font-size:13px;white-space:nowrap}
+.timeline{list-style:none;padding:0;margin:18px 0 0}.timeline li{display:grid;grid-template-columns:135px 1fr;gap:15px;padding:12px 0;border-top:1px solid #edf1f4}.timeline span{font-size:13px;color:var(--muted);font-weight:800}
+.hotelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.hotel p{color:var(--muted)}.room,.status{background:var(--sand);border:1px solid #ebdec8;border-radius:12px;padding:13px 14px;margin:13px 0}.status.ok{background:#edf7f2;border-color:#cfe7db}.status.warn{background:#fff5e9;border-color:#efd8b7}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions a{border:1px solid var(--line);background:#fff;padding:8px 10px;border-radius:9px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:var(--shadow)}th,td{padding:14px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#edf3f5}tr:last-child td{border-bottom:0}
+.route{padding:17px 19px;align-items:center}.route small{display:block;color:var(--muted);margin-top:4px}
+.note{background:var(--sand);border:1px solid #ebdec8;border-radius:13px;padding:15px 17px;margin-top:20px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check{padding:14px 15px;display:flex;gap:10px;align-items:flex-start}
+@media(max-width:900px){.metrics{grid-template-columns:1fr 1fr}.hotelgrid{grid-template-columns:1fr}.head{flex-direction:column;align-items:flex-start}}
+@media(max-width:640px){.hero{padding:50px 18px 42px}main{padding:28px 15px 65px}.daytop,.route{flex-direction:column}.timeline li{grid-template-columns:98px 1fr}.checks{grid-template-columns:1fr}.metrics{gap:9px}.metric{padding:15px}}
+
+/* Mobile-first refinements */
+@media(max-width:640px){
+  body{font-size:15px}
+  .hero{padding:42px 16px 36px}
+  .hero h1{font-size:40px;line-height:1.02}
+  .hero p{font-size:16px}
+  .badges{gap:8px;margin-top:20px}
+  .badge{font-size:12px;padding:8px 10px}
+  nav{bottom:0;top:auto;border-top:1px solid var(--line);border-bottom:0}
+  nav .wrap{padding:8px 8px 10px;gap:4px;justify-content:space-between}
+  nav button{font-size:11px;padding:9px 8px;min-width:74px}
+  main{padding:24px 14px 92px}
+  .head{margin-bottom:18px;padding-bottom:14px;gap:10px}
+  .head h2{font-size:28px}
+  .head p{font-size:14px}
+  .metrics{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+  .metric{padding:14px 12px;border-radius:14px}
+  .metric b{font-size:23px}
+  .metric span{font-size:12px}
+  .card{padding:18px;border-radius:16px}
+  .daytop,.hoteltop,.route{gap:10px}
+  .pill{font-size:12px;padding:7px 9px}
+  .timeline{margin-top:14px}
+  .timeline li{grid-template-columns:88px 1fr;gap:8px;padding:11px 0}
+  .timeline span{font-size:12px}
+  .hotelgrid{gap:12px}
+  .room,.status{padding:12px}
+  .actions a,.route a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;border-radius:10px}
+  .actions{gap:7px}
+  .route{padding:15px 16px}
+  .route a{width:100%;margin-top:2px}
+  .checks{gap:9px}
+  .check{padding:13px 14px;min-height:50px}
+  .check input{width:20px;height:20px}
+  table,thead,tbody,tr,th,td{display:block;width:100%}
+  thead{display:none}
+  table{background:transparent;border:0;box-shadow:none}
+  tr{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;padding:12px 14px;box-shadow:var(--shadow)}
+  td{border:0!important;padding:5px 0!important}
+  td:before{content:attr(data-label);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:2px}
+}
+@media(min-width:641px) and (max-width:900px){
+  nav .wrap{padding-left:12px;padding-right:12px}
+  .hotelgrid{grid-template-columns:1fr 1fr}
+}
+
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="eyebrow" style="color:#dcebf0">Viaje familiar · 2026</div>
+<h1>Sevilla · Algarve · Mérida</h1>
+<p>Planning vivo del viaje desde Elche, con hoteles, alternativas, visitas, entradas y rutas de Google Maps.</p>
+<div class="badges"><span class="badge">25/8–3/9</span><span class="badge">9 noches</span><span class="badge">2 + 5 + 2 noches</span><span class="badge">2 adultos + 11 y 16 años</span></div>
+</div></header>
+<nav><div class="wrap">
+<button class="active" data-tab="plan">Itinerario</button><button data-tab="hotels">Hoteles</button><button data-tab="status">Estado hoteles</button><button data-tab="visits">Visitas</button><button data-tab="routes">Rutas</button><button data-tab="portugal">Portugal</button><button data-tab="check">Checklist</button>
+</div></nav>
+<main>
+
+<section id="plan" class="active">
+<div class="head"><div><div class="eyebrow">Planning</div><h2>Itinerario</h2></div><p>Horarios orientativos, con margen para calor, tráfico y descansos.</p></div>
+<div class="metrics"><div class="metric"><b>9</b><span>noches</span></div><div class="metric"><b>3</b><span>destinos</span></div><div class="metric"><b>~2.000 km</b><span>con desplazamientos</span></div><div class="metric"><b>5</b><span>noches Algarve</span></div></div>
+<div class="daygrid">
+<div class="card"><div class="daytop"><div><span class="date">25/8</span><h3>Elche → Sevilla</h3></div><span class="pill">09:30 → 16:30–17:00</span></div><ul class="timeline"><li><span>11:45</span><b>Descanso Lorca / Puerto Lumbreras</b></li><li><span>13:00–14:00</span><b>Comida en Guadix / A-92</b></li><li><span>19:30</span><b>Plaza de España · María Luisa · Santa Cruz</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">26/8</span><h3>Sevilla monumental</h3></div><span class="pill">09:15 → 22:00</span></div><ul class="timeline"><li><span>09:30–11:30</span><b>Real Alcázar</b></li><li><span>12:00–13:20</span><b>Catedral + Giralda</b></li><li><span>15:15–18:30</span><b>Hotel / piscina / descanso</b></li><li><span>19:00–21:30</span><b>Torre del Oro · Guadalquivir · Triana</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">27/8</span><h3>Sevilla → Algarve</h3></div><span class="pill">10:30 ES → ~12:00 PT</span></div><ul class="timeline"><li><span>10:30 ES</span><b>Salida de Sevilla</b></li><li><span>~12:00 PT</span><b>Llegada al resort</b></li><li><span>13:00 PT</span><b>Comida y primera tarde de playa/piscina</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">28–31/8</span><h3>Algarve</h3></div><span class="pill">4 días completos</span></div><ul class="timeline"><li><span>28/8</span><b>Resort y playa</b></li><li><span>29/8</span><b>Praia da Marinha · Benagil · Carvoeiro</b></li><li><span>30/8</span><b>Resort y descanso</b></li><li><span>31/8</span><b>Último día completo + cena especial</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">1/9</span><h3>Algarve → Mérida</h3></div><span class="pill">10:30 PT → 16:30–17:00 ES</span></div><ul class="timeline"><li><span>12:30–13:30 PT</span><b>Comida en Beja si encaja con GPS</b></li><li><span>18:30</span><b>Plaza de España · Templo de Diana · Puente Romano</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">2/9</span><h3>Mérida romana</h3></div><span class="pill">09:15 → 21:30</span></div><ul class="timeline"><li><span>09:30–11:30</span><b>Teatro + Anfiteatro</b></li><li><span>11:40–13:00</span><b>Museo Nacional de Arte Romano</b></li><li><span>17:30–20:15</span><b>Mitreo / Columbarios / Acueducto o Alcazaba</b></li></ul></div>
+<div class="card"><div class="daytop"><div><span class="date">3/9</span><h3>Mérida → Elche</h3></div><span class="pill">09:00 → 17:30–18:00</span></div><ul class="timeline"><li><span>11:15</span><b>Descanso corto</b></li><li><span>13:30–14:30</span><b>Comida zona Albacete</b></li></ul></div>
+</div></section>
+
+<section id="hotels">
+<div class="head"><div><div class="eyebrow">Alojamiento</div><h2>Hoteles y alternativas</h2></div><p>El Algarve mantiene varias opciones abiertas por la disponibilidad limitada de VILALARA.</p></div>
+<div class="hotelgrid">
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Sevilla · confirmado</span><h3>Hotel Alfonso XIII 5★</h3></div></div><p>Centro monumental, piscina y excelente ubicación para visitar a pie.</p><div class="room"><b>Reservado:</b> Premium Suite, 1 Bedroom, 1 Super King · 2 adultos + 2 hijos · Flexible Rate with Breakfast.</div><div class="status ok"><b>CONFIRMADO</b><br><span>25–27/8 · total 2.134 €. Cancelación gratuita hasta 24/08/2026 a las 23:59. Dos camas extra y desayuno para cuatro solicitados por escrito al hotel.</span></div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Alfonso+XIII+Sevilla">Maps</a><a target="_blank" href="https://www.marriott.com/es/hotels/svqlc-hotel-alfonso-xiii-a-luxury-collection-hotel-seville/overview/">Web</a></div></div>
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · confirmado</span><h3>Grande Real Santa Eulália 5★</h3></div></div><p>Resort 5★ en Albufeira, con acceso directo a Praia de Santa Eulália.</p><div class="room"><b>Reservado:</b> 2 × One Bedroom Deluxe Villa · Bed & Breakfast · 27/8–1/9.</div><div class="status ok"><b>CONFIRMADO</b><br><span>Total previsto: 3.573,50 €. Cancelación gratuita hasta 24/08/2026. Solicitud de villas juntas/próximas enviada.</span></div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Grande+Real+Santa+Eulalia+Albufeira">Maps</a><a target="_blank" href="https://www.granderealsantaeulalia.realhotelsgroup.com/">Web</a></div></div>
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 1</span><h3>Pine Cliffs Ocean Suites 5★</h3></div></div><p>Praia da Falésia, apartamento real y resort de gran nivel.</p><div class="room"><b>Objetivo:</b> 2 Bedroom Ocean Suite.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Pine+Cliffs+Ocean+Suites+Algarve">Maps</a><a target="_blank" href="https://www.pinecliffs.com/en/accommodation/ocean-suites-a-luxury-collection-resort/">Web</a></div></div>
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 2</span><h3>Martinhal Sagres 5★</h3></div></div><p>Excelente opción familiar y playa muy próxima.</p><div class="room"><b>Objetivo:</b> Ocean House 2 Bedrooms · Sea View.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Martinhal+Sagres">Maps</a><a target="_blank" href="https://www.martinhal.com/es/hoteles/sagres/">Web</a></div></div>
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Algarve · alternativa 3</span><h3>EPIC SANA Algarve 5★</h3></div></div><p>Praia da Falésia y buena solución con habitaciones comunicadas.</p><div class="room"><b>Objetivo:</b> Family Room / 2 habitaciones comunicadas.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=EPIC+SANA+Algarve">Maps</a><a target="_blank" href="https://sanahotels.com/es/hotel/epic-sana-algarve/">Web</a></div></div>
+<div class="card hotel"><div class="hoteltop"><div><span class="eyebrow">Mérida</span><h3>ILUNION Mérida Palace 5★</h3></div></div><p>Plaza de España y visitas romanas a pie.</p><div class="room"><b>Objetivo:</b> 2 habitaciones comunicadas/contiguas.</div><div class="actions"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=ILUNION+Merida+Palace">Maps</a><a target="_blank" href="https://www.ilunionhotels.com/hoteles/ilunion-merida-palace">Web</a></div></div>
+</div></section>
+
+<section id="status">
+<div class="head"><div><div class="eyebrow">Seguimiento</div><h2>Estado de consultas</h2></div><p>Monitorización activa por email. No se reserva nada sin autorización.</p></div>
+<div class="hotelgrid">
+<div class="card"><h3>Hotel Alfonso XIII</h3><div class="status ok"><b>CONFIRMADO</b><br><span>Premium Suite · 25–27/8 · 2 adultos + 2 hijos · desayuno · total 2.134 €. Pendiente solo de confirmación escrita de dos camas extra y desayuno para cuatro.</span></div></div>
+<div class="card"><h3>Grande Real Santa Eulália</h3><div class="status ok"><b>CONFIRMADO</b><br><span>2 × One Bedroom Deluxe Villa · Bed & Breakfast · 27/8–1/9 · total 3.573,50 € incluyendo cargos indicados en hotel. Villas juntas/próximas solicitadas, pendiente de confirmación escrita.</span></div></div>
+<div class="card"><h3>Pine Cliffs</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Email enviado para 2 Bedroom Ocean Suite.</span></div></div>
+<div class="card"><h3>Martinhal Sagres</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Email enviado para Ocean House.</span></div></div>
+<div class="card"><h3>EPIC SANA</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Email enviado para configuración familiar.</span></div></div>
+<div class="card"><h3>ILUNION Mérida Palace</h3><div class="status warn"><b>Pendiente de respuesta</b><br><span>Consulta enviada para Mérida.</span></div></div>
+</div><div class="note">Grande Real Santa Eulália está confirmado como reserva de seguridad. Se mantienen VILALARA, Pine Cliffs, Martinhal y EPIC SANA como alternativas mientras llegan respuestas. No se publican localizador ni datos personales.</div>
+</section>
+
+<section id="visits">
+<div class="head"><div><div class="eyebrow">Qué ver</div><h2>Visitas y entradas</h2></div><p>Enlaces revisados a webs oficiales y ubicaciones de Google Maps.</p></div>
+<div style="overflow:auto"><table><thead><tr><th>Lugar</th><th>Cuándo</th><th>Acción</th><th>Enlaces</th></tr></thead><tbody>
+<tr><td data-label="Lugar"><b>Real Alcázar</b></td><td data-label="Cuándo">26/8 · 09:30</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://alcazarsevilla.org/prepara-la-visita/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Real+Alcazar+Sevilla">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Catedral + Giralda</b></td><td data-label="Cuándo">26/8 · 12:00</td><td data-label="Acción">Comprar online</td><td data-label="Enlaces"><a target="_blank" href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Sevilla">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Praia da Marinha</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Sin entrada</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Praia+da+Marinha+Portugal">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Benagil</b></td><td data-label="Cuándo">29/8</td><td data-label="Acción">Barco según mar</td><td data-label="Enlaces"><a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Benagil+Portugal">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Teatro + Anfiteatro</b></td><td data-label="Cuándo">2/9 · 09:30</td><td data-label="Acción">Bono conjunto</td><td data-label="Enlaces"><a target="_blank" href="https://www.consorciomerida.org/node/140">Entradas</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Teatro+Romano+Merida">Maps</a></td></tr>
+<tr><td data-label="Lugar"><b>Museo Nacional de Arte Romano</b></td><td data-label="Cuándo">2/9 · 11:40</td><td data-label="Acción">Revisar horario</td><td data-label="Enlaces"><a target="_blank" href="https://www.cultura.gob.es/mnromano/gl/informacion/horarios-tarifas.html">Web oficial</a> · <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Museo+Nacional+Arte+Romano+Merida">Maps</a></td></tr>
+</tbody></table></div></section>
+
+<section id="routes">
+<div class="head"><div><div class="eyebrow">En coche</div><h2>Rutas</h2></div><p>Google Maps recalcula tráfico y duración en tiempo real.</p></div>
+<div class="routes">
+<div class="route"><div><b>Elche → Sevilla · ≈563 km</b><small>Conducción base ≈5 h 47 min. Corredor principal: Elche → Murcia/Lorca → Guadix → Granada → Sevilla. Salida 09:30 · descanso Lorca/Puerto Lumbreras · comida Guadix · llegada 16:30–17:00.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Elche%2C+Alicante&destination=Calle+San+Fernando+2%2C+Sevilla&travelmode=driving">Abrir Maps</a></div>
+<div class="route"><div><b>Sevilla → Grande Real Santa Eulália, Albufeira · ≈227 km</b><small>Conducción base ≈2 h 20 min. Corredor principal: Sevilla → Huelva → Ayamonte/Castro Marim → A22 → Albufeira. Salida 10:30 ES · sin parada programada · llegada aproximada 11:50–12:15 PT.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Calle+San+Fernando+2%2C+Sevilla&destination=Grande+Real+Santa+Eulalia%2C+Albufeira%2C+Portugal&travelmode=driving">Abrir Maps</a></div>
+<div class="route"><div><b>Albufeira → Mérida · ≈347 km</b><small>Conducción base ≈4 h 19 min. Ruta interior hacia Extremadura; el corredor exacto puede variar según tráfico. Salida 10:30 PT · comida en Beja si Google Maps mantiene esa ruta · llegada 16:30–17:00 ES.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Grande+Real+Santa+Eulalia%2C+Albufeira%2C+Portugal&destination=Plaza+de+Espana+19%2C+Merida&travelmode=driving">Abrir Maps</a></div>
+<div class="route"><div><b>Mérida → Elche · ≈600 km</b><small>Conducción base ≈7 h 05 min. Corredor principal hacia Ciudad Real/Albacete y A-31 hasta Elche. Salida 09:00 · descanso tras unas 2 h · comida zona Albacete · llegada 17:30–18:00.</small></div><a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Plaza+de+Espana+19%2C+Merida&destination=Elche%2C+Alicante&travelmode=driving">Abrir Maps</a></div>
+</div>
+<div class="note"><b>Total interurbano aproximado: 1.737 km.</b> Sumando desplazamientos locales en Sevilla, Algarve y Mérida, conviene prever alrededor de 1.900–2.000 km para todo el viaje. Google Maps recalculará automáticamente distancia, tráfico y ruta el día de cada desplazamiento.</div></section>
+
+
+<section id="portugal">
+<div class="head"><div><div class="eyebrow">Frontera y coche</div><h2>Entrar en Portugal</h2></div><p>Checklist específico para el Lexus RX 450h y el cruce desde Sevilla hacia el Algarve.</p></div>
+<div class="card">
+  <div class="daytop"><div><span class="date">Importante</span><h3>La A22 del Algarve ya no tiene peaje</h3></div><span class="pill">Desde 1/1/2025</span></div>
+  <p class="muted">Para la ruta desde Ayamonte/Castro Marim hacia el Algarve no es necesario registrar el coche en EasyToll únicamente para circular por la A22. La supresión de peajes en toda la A22 entró en vigor el 1 de enero de 2025.</p>
+</div>
+<div class="hotelgrid" style="margin-top:18px">
+ <div class="card"><span class="eyebrow">Personas</span><h3>Documentación</h3><div class="room"><b>Llevar:</b> DNI o pasaporte válido de los cuatro, incluidos los menores.</div></div>
+ <div class="card"><span class="eyebrow">Lexus RX 450h</span><h3>Documentación del coche</h3><div class="room"><b>Llevar:</b> permiso de conducir, permiso de circulación, ITV/ficha técnica y seguro vigente.</div></div>
+ <div class="card"><span class="eyebrow">Conducción</span><h3>Antes de salir</h3><div class="room"><b>Revisar:</b> presión y estado de neumáticos, combustible, niveles y asistencia en carretera con cobertura en Portugal.</div></div>
+</div>
+<div class="note"><b>Peajes:</b> la A22 es gratuita, pero otras autopistas portuguesas pueden seguir teniendo peaje. Si el itinerario cambia, Google Maps debe revisarse antes de entrar en una autopista distinta de la A22.</div>
+</section>
+
+<section id="check">
+<div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
+<div class="checks" id="checks">
+<label class="check"><input type="checkbox"><span>Hoteles confirmados por escrito</span></label>
+<label class="check"><input type="checkbox"><span>Configuración familiar confirmada</span></label>
+<label class="check"><input type="checkbox"><span>Desayunos y parking revisados</span></label>
+<label class="check"><input type="checkbox"><span>Entradas Alcázar y Catedral</span></label>
+<label class="check"><input type="checkbox"><span>A22 sin peaje confirmada; revisar peajes solo si cambia la ruta</span></label>
+<label class="check"><input type="checkbox"><span>Benagil revisado según mar</span></label>
+<label class="check"><input type="checkbox"><span>Rutas revisadas antes de cada etapa</span></label>
+<label class="check"><input type="checkbox"><span>Documentación y equipaje listos</span></label>
+</div><div class="note" id="progress">0 de 8 tareas completadas.</div></section>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('nav button')];
+buttons.forEach(b=>b.onclick=()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));document.getElementById(b.dataset.tab).classList.add('active')});
+const boxes=[...document.querySelectorAll('#checks input')],p=document.getElementById('progress');
+function up(){let n=boxes.filter(x=>x.checked).length;p.textContent=`${n} de ${boxes.length} tareas completadas.`}
+boxes.forEach((x,i)=>{x.checked=localStorage.getItem('v26-'+i)==='1';x.onchange=()=>{localStorage.setItem('v26-'+i,x.checked?'1':'0');up()}});up();
+</script>
+</body></html>
