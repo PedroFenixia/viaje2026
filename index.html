@@ -488,7 +488,7 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 .booking-pending{display:inline-block;margin-top:6px;padding:4px 8px;border-radius:999px;background:#fff0d4;color:#8a611d;font-size:11px;font-weight:900;font-style:normal}
 .restaurant-booking-check{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
 .restaurant-booking-check p{color:var(--muted)}
-</style></head>
+</style><style id="buggy-v17">.optional-plan.adventure{background:#f7f4ed;border-color:#d8c59f}.optional-plan.adventure b{color:#76531b}</style></head>
 <body>
 <!-- PLANNING CLEAN · 17-08-2026 -->
 <header class="hero"><div class="wrap">
@@ -522,7 +522,7 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <div class="card"><div class="daytop"><div><span class="date">Viernes · 28/8</span><h3>Día 4 · Algarve · descanso</h3></div><span class="pill">Resort</span></div><ul class="timeline"><li><span>09:00</span><b>Desayuno Real Cozinha · cierra 10:30 PT</b></li><li><span>10:30</span><b>Playa Santa Eulália / piscina</b></li><li><span>13:30</span><b>Comida</b></li><li><span>15:00–18:30</span><b>Descanso y piscina</b></li><li><span>20:30</span><b>Cena</b></li></ul><div class="daily-meals" data-meals="28/8">
 <div class="meal-row"><span>🍽️ 13:30 · Comida</span><b>Pizzeria Artigianale / zona piscina · resort</b><small>Día de piscina/playa: comida informal sin mover el coche. Presupuesto orientativo: 55–75 €.</small></div>
 <div class="meal-row"><span>🌙 20:30 · Cena</span><b>Real Cozinha Restaurante · resort</b><small>Cena familiar en el hotel; verano 19:00–22:30. Presupuesto orientativo: 90–130 €.</small></div>
-</div><div class="optional-plan"><b>🏖️ OPCIONAL · Tarde completa de resort</b><span>Mantener piscina, playa de Santa Eulália y descanso como prioridad. Sin visitas obligatorias.</span></div></div>
+</div><div class="optional-plan"><b>🏖️ OPCIONAL · Tarde completa de resort</b><span>Mantener piscina, playa de Santa Eulália y descanso como prioridad. Sin visitas obligatorias.</span></div><div class="optional-plan adventure"><b>🏎️ OPCIONAL · Buggy 4 plazas · 90 min</b><span>1 buggy para los cuatro · self-drive siguiendo al guía · conductor adulto con carnet B · Karting Almancil / Algarve Adventures · <strong>175 € total previstos</strong>. 🟠 Pendiente de reserva y horario definitivo. No combinar con Benagil.</span></div></div>
 
 <div class="card"><div class="daytop"><div><span class="date">Sábado · 29/8</span><h3>Día 5 · Benagil · Marinha · Carvoeiro</h3></div><span class="pill">Coche</span></div><ul class="timeline"><li><span>08:00</span><b>Desayuno Real Cozinha · 07:30–10:30 PT</b></li><li><span>09:00</span><b>Salir en coche · excursión Benagil pendiente de reserva</b></li><li><span>Mañana</span><b>Benagil + Praia da Marinha</b></li><li><span>13:30</span><b>Comida en zona Carvoeiro</b></li><li><span>15:30</span><b>Paseo Carvoeiro</b></li><li><span>17:30</span><b>Regreso al resort</b></li><li><span>20:30</span><b>Cena</b></li></ul><div class="daily-meals" data-meals="29/8">
 <div class="meal-row"><span>🍽️ 13:30–14:00 · Comida</span><b>Boneca Bar Restaurante · Carvoeiro</b><em class="booking-pending">📅 RESERVAR MESA · pendiente</em><small>Tras Benagil/Praia da Marinha, comida portuguesa y pescado en Algar Seco. Presupuesto orientativo: 80–110 €.</small></div>
@@ -805,7 +805,7 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <div class="daytop"><div><span class="date">Registro</span><h3>Mis gastos</h3></div><button type="button" id="exportExpenses">Exportar CSV</button></div>
 <div id="expenseList"><p class="muted">Todavía no hay gastos registrados.</p></div>
 </div>
-<div class="note"><b>Actividad pendiente:</b> Excursión Benagil · 29/08 · 4 personas · coste pendiente de compra.</div><div class="note food-budget"><b>🍽️ Presupuesto comidas Algarve:</b> reservar aproximadamente <strong>750–1.065 €</strong> para las 5 comidas + 5 cenas de los cuatro. El desayuno ya está incluido en el hotel. Los importes son estimaciones de planificación y se sustituirán por tickets reales.</div></section>
+<div class="note"><b>Actividad pendiente:</b> Excursión Benagil · 29/08 · 4 personas · coste pendiente de compra.</div><div class="note food-budget"><b>🍽️ Presupuesto comidas Algarve:</b> reservar aproximadamente <strong>750–1.065 €</strong> para las 5 comidas + 5 cenas de los cuatro. El desayuno ya está incluido en el hotel. Los importes son estimaciones de planificación y se sustituirán por tickets reales.</div><div class="note"><b>🏎️ Actividad pendiente:</b> Buggy 4 plazas · 90 min · <strong>175 €</strong> previstos · pendiente de reserva.</div></section>
 
 <section id="check">
 <div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
@@ -835,7 +835,7 @@ input:focus,select:focus,textarea:focus{border-color:#6e9cac!important;box-shado
 <label class="check"><input type="checkbox"><span><b>Boneca Bar · Carvoeiro</b><small>29/08 · comida ~13:30–14:00 PT · ajustar a la hora definitiva de Benagil.</small></span></label>
 <label class="check"><input type="checkbox"><span><b>MayFlower · Vilamoura Marina</b><small>30/08 · cena ~20:30 PT · ligada a salida opcional a Vilamoura.</small></span></label>
 <label class="check"><input type="checkbox"><span><b>Frank's · Olhos de Água</b><small>31/08 · cena ~20:30 PT · cena final del Algarve.</small></span></label>
-</div></section>
+</div><label class="check"><input type="checkbox"><span><b>Reservar buggy 4 plazas · 90 min</b><small>Algarve · 1 buggy para 4 · 175 € previstos · conductor con carnet B · confirmar día/hora y condiciones finales.</small></span></label></section>
 </main>
 <script>
 const buttons=[...document.querySelectorAll('nav button')];
