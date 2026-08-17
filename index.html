@@ -549,7 +549,140 @@ section{scroll-margin-top:88px}
   .card{padding:22px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-</style><style>#mobile-bottom-nav a.active{background:#eef6f5;color:var(--a)}</style></head>
+</style><style>#mobile-bottom-nav a.active{background:#eef6f5;color:var(--a)}</style><style id="visual-theme-v20">
+/* Visual refresh: warm Mediterranean editorial palette */
+:root{
+  --ink:#18323a;
+  --muted:#6c7a7d;
+  --a:#176b67;
+  --a2:#0f5552;
+  --line:#dce5e2;
+  --paper:#f7f3eb;
+  --surface:#fffdf9;
+  --sand:#e9d8b4;
+  --terracotta:#b86a4f;
+  --sun:#c99b4b;
+}
+html,body{
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+}
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 85% 0%,rgba(201,155,75,.10),transparent 26rem),
+    linear-gradient(180deg,#fbf9f4 0%,var(--paper) 100%);
+}
+h1,h2,h3,.hero-title{
+  font-family:"Avenir Next",Avenir,"SF Pro Display",Inter,ui-sans-serif,sans-serif;
+  letter-spacing:-.025em;
+  color:#17363c;
+}
+h1{font-weight:800}
+h2{font-weight:750}
+h3{font-weight:700}
+.eyebrow,.date,.pill,.quick,.mobile-bottom-nav b{
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;
+  letter-spacing:.015em;
+}
+.card,.planning-status>div{
+  background:rgba(255,253,249,.96);
+  border-color:#e3e7e1;
+  box-shadow:0 10px 32px rgba(31,56,60,.07);
+}
+.quick{
+  background:#fffdf9;
+  border-color:#d9e2df;
+  color:#315057;
+}
+.quick.primary{
+  background:linear-gradient(135deg,#176b67,#0f5552);
+  border-color:transparent;
+  color:white;
+  box-shadow:0 6px 18px rgba(23,107,103,.20);
+}
+.pill{
+  background:#edf5f2;
+  color:#176b67;
+  border-color:#d4e6e1;
+}
+.optional-plan{
+  background:#f2f7f5;
+  border-color:#bad4cd;
+}
+.optional-plan b{color:#176b67}
+.optional-plan.adventure{
+  background:#fff7e9;
+  border-color:#e5c993;
+}
+.optional-plan.adventure b{color:#8b5b19}
+.meal-row{
+  background:#fff8ed;
+  border-color:#ead8b8;
+}
+.meal-row span{color:#99691d}
+.pending-confirmation{
+  background:#fff6e5;
+  border-color:#e5c888;
+}
+.spa-note{
+  background:#edf7f6;
+  border-color:#c9e1dd;
+}
+.status.ok{background:#edf7f1}
+.status.warn{background:#fff4e2}
+.mobile-bottom-nav{
+  background:rgba(255,253,249,.95);
+  border-color:rgba(32,69,72,.10);
+}
+.mobile-bottom-nav a.active,
+.mobile-bottom-nav a:active{
+  background:#e8f2ef;
+  color:#176b67;
+}
+@media(max-width:700px){
+  .quick-actions{
+    background:rgba(247,243,235,.94);
+    border-bottom-color:rgba(32,69,72,.08);
+  }
+  h1{letter-spacing:-.04em}
+}
+</style><style id="checklist-ui-v21">
+#check{position:relative}
+#check .head{margin-bottom:12px}
+.check-dashboard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:end;margin:0 0 18px}
+.check-progress-card{padding:16px 17px;border-radius:18px;background:linear-gradient(135deg,#173f43,#176b67);color:#fff;box-shadow:0 10px 28px rgba(23,107,103,.18)}
+.check-progress-card>div:first-child{display:flex;align-items:end;justify-content:space-between;gap:12px}
+.check-progress-card strong{font-size:16px;white-space:nowrap}
+.check-kicker{font-size:10px;font-weight:900;letter-spacing:.12em;opacity:.72}
+.check-progress-track{height:7px;margin:12px 0 8px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+.check-progress-track i{display:block;width:0;height:100%;border-radius:inherit;background:#fff;transition:width .25s ease}
+.check-progress-card small{opacity:.8}
+.check-filters{display:flex;gap:5px;padding:4px;border:1px solid var(--line);border-radius:14px;background:#fffdf9}
+.check-filters button{min-height:40px;padding:0 12px;border:0;border-radius:10px;background:transparent;color:var(--muted);font:800 12px Inter,ui-sans-serif,sans-serif;cursor:pointer}
+.check-filters button.active{background:#e8f2ef;color:#176b67}
+#check label.check{position:relative;display:grid!important;grid-template-columns:26px minmax(0,1fr);gap:12px;min-height:66px;margin:8px 0;padding:13px 14px!important;border:1px solid #e1e6e1;border-radius:15px;background:#fffdf9;box-shadow:0 4px 16px rgba(31,56,60,.045);transition:.18s ease}
+#check label.check:hover{border-color:#bfd3ce;transform:translateY(-1px)}
+#check label.check input{margin-top:2px;accent-color:#176b67}
+#check label.check span{display:grid;gap:4px;min-width:0}
+#check label.check b{font-size:14px;line-height:1.3;color:#213e43}
+#check label.check small{font-size:12px;line-height:1.45;color:var(--muted)}
+#check label.check:has(input:checked){background:#f0f6f3;border-color:#c7ddd6;opacity:.72}
+#check label.check:has(input:checked) b{text-decoration:line-through;text-decoration-thickness:1px}
+#check label.check:before{content:"";position:absolute;left:-1px;top:13px;bottom:13px;width:3px;border-radius:0 4px 4px 0;background:#c9d6d3}
+#check label.check-action:before{background:#c99b4b}
+#check label.check-hotel:before{background:#176b67}
+.restaurant-booking-check{margin-top:22px!important;padding:16px!important;border:1px solid #ead8b8!important;border-radius:18px;background:#fff9ef}
+.restaurant-booking-check h3{margin-top:0}
+#check .is-hidden{display:none!important}
+@media(max-width:700px){
+ .check-dashboard{grid-template-columns:1fr;gap:9px}
+ .check-progress-card{padding:14px 15px;border-radius:16px}
+ .check-filters{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}
+ .check-filters button{padding:0 8px}
+ #check label.check{min-height:64px;margin:7px 0;padding:12px 12px!important;border-radius:14px}
+ #check label.check b{font-size:14px}
+}
+</style></head>
 <body>
 <!-- PLANNING CLEAN · 17-08-2026 -->
 <header class="hero"><div class="wrap">
@@ -848,33 +981,46 @@ section{scroll-margin-top:88px}
 <div class="note"><b>Actividad pendiente:</b> Excursión Benagil · 29/08 · 4 personas · coste pendiente de compra.</div><div class="note food-budget"><b>🍽️ Presupuesto comidas Algarve:</b> reservar aproximadamente <strong>750–1.065 €</strong> para las 5 comidas + 5 cenas de los cuatro. El desayuno ya está incluido en el hotel. Los importes son estimaciones de planificación y se sustituirán por tickets reales.</div><div class="note"><b>🏎️ Actividad pendiente:</b> Buggy 4 plazas · 90 min · <strong>175 €</strong> previstos · pendiente de reserva.</div></section>
 <section id="check">
 <div class="head"><div><div class="eyebrow">Antes de salir</div><h2>Checklist</h2></div><p>Las casillas se guardan en el navegador.</p></div>
+<div class="check-dashboard" id="check-dashboard-v21">
+<div class="check-progress-card">
+<div><span class="check-kicker">CONTROL DEL VIAJE</span><strong><span id="check-done">0</span>/<span id="check-total">0</span> completadas</strong></div>
+<div class="check-progress-track"><i id="check-progress-bar"></i></div>
+<small id="check-progress-label">Preparando checklist…</small>
+</div>
+<div aria-label="Filtros checklist" class="check-filters" role="group">
+<button class="active" data-filter="all" type="button">Todas</button>
+<button data-filter="pending" type="button">Pendientes</button>
+<button data-filter="done" type="button">Hechas</button>
+</div>
+</div>
+
 <div class="checks" id="checks">
-<label class="check"><input type="checkbox"/><span>Hoteles confirmados por escrito</span></label>
-<label class="check"><input type="checkbox"/><span>Configuración familiar confirmada</span></label>
-<label class="check"><input type="checkbox"/><span>Desayunos y parking revisados</span></label>
-<label class="check"><input type="checkbox"/><span><b>Sevilla · Real Alcázar</b><br/>26/8 · 09:30 · entrada anticipada recomendada.<br/><a href="https://alcazarsevilla.org/prepara-la-visita/" target="_blank">Comprar / reservar</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Real+Alcazar+de+Sevilla" target="_blank">Maps</a></span></label>
-<label class="check"><input type="checkbox"/><span><b>Sevilla · Catedral + Giralda</b><br/>26/8 · 12:00 · compra online recomendada.<br/><a href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/" target="_blank">Comprar / reservar</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Sevilla+y+Giralda" target="_blank">Maps</a></span></label>
-<label class="check"><input type="checkbox"/><span><b>Sevilla:</b> Plaza de España, Parque de María Luisa, Santa Cruz, Torre del Oro y Triana incluidos en el recorrido</span></label>
-<label class="check"><input type="checkbox"/><span><b>Algarve · Benagil</b><br/>29/8 · reservar excursión en barco cuando elijamos operador y horario; revisar mar antes de salir.<br/><a href="https://www.google.com/maps/search/?api=1&amp;query=Benagil+Cave+Portugal" target="_blank">Maps</a></span></label>
-<label class="check"><input type="checkbox"/><span><b>Algarve:</b> Praia da Marinha y Carvoeiro incluidos en la ruta del 29/8</span></label>
-<label class="check"><input type="checkbox"/><span><b>Mérida · Teatro Romano + Anfiteatro</b><br/>2/9 · 09:30 · comprar entrada/bono del conjunto monumental.<br/><a href="https://www.consorciomerida.org/" target="_blank">Comprar / información oficial</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Teatro+Romano+de+Merida" target="_blank">Maps</a></span></label>
-<label class="check"><input type="checkbox"/><span><b>Mérida · Museo Nacional de Arte Romano</b><br/>2/9 · 11:40 · revisar horario y entrada antes del viaje.<br/><a href="https://www.cultura.gob.es/mnromano/" target="_blank">Web oficial</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Museo+Nacional+de+Arte+Romano+Merida" target="_blank">Maps</a></span></label>
-<label class="check"><input type="checkbox"/><span><b>Mérida:</b> incluir Templo de Diana, Puente Romano, Casa del Mitreo/Columbarios y Alcazaba o Acueducto</span></label>
-<label class="check"><input checked="" type="checkbox"/><span><b>Toledo: Hotel Cigarral El Bosque CONFIRMADO</b><br/>3–5/9 · 2 habitaciones Confort · desayuno incluido · 804 € · pago en hotel · cancelación gratuita hasta 2/9.</span></label>
-<label class="check"><input type="checkbox"/><span><b>Toledo:</b> comprar/reservar entradas de Catedral y monumentos prioritarios para el 4/9</span></label>
-<label class="check"><input type="checkbox"/><span><b>Toledo:</b> definir recorrido Catedral · Judería · Santo Tomé · San Juan de los Reyes · Alcázar</span></label>
-<label class="check"><input type="checkbox"/><span><b>Cambio horario:</b> 27/8 atrasar 1 h al entrar en Portugal · 1/9 adelantar 1 h al regresar a España</span></label>
-<label class="check"><input type="checkbox"/><span>A22 sin peaje confirmada; revisar peajes solo si cambia la ruta</span></label>
-<label class="check"><input type="checkbox"/><span>Rutas revisadas antes de cada etapa</span></label>
-<label class="check"><input type="checkbox"/><span>Documentación y equipaje listos</span></label>
-</div><div class="note" id="progress">0 tareas completadas.</div><label class="check"><input type="checkbox"/><span><b>Reservar excursión Benagil · 29/08/2026</b><small>4 personas · confirmar operador, horario, embarque y cancelación.</small></span></label><div class="restaurant-booking-check">
+<label class="check check-hotel"><input type="checkbox"/><span>Hoteles confirmados por escrito</span></label>
+<label class="check check-general"><input type="checkbox"/><span>Configuración familiar confirmada</span></label>
+<label class="check check-general"><input type="checkbox"/><span>Desayunos y parking revisados</span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Sevilla · Real Alcázar</b><br/>26/8 · 09:30 · entrada anticipada recomendada.<br/><a href="https://alcazarsevilla.org/prepara-la-visita/" target="_blank">Comprar / reservar</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Real+Alcazar+de+Sevilla" target="_blank">Maps</a></span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Sevilla · Catedral + Giralda</b><br/>26/8 · 12:00 · compra online recomendada.<br/><a href="https://www.catedraldesevilla.es/visita-cultural/horarios-y-tarifas/" target="_blank">Comprar / reservar</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Sevilla+y+Giralda" target="_blank">Maps</a></span></label>
+<label class="check check-hotel"><input type="checkbox"/><span><b>Sevilla:</b> Plaza de España, Parque de María Luisa, Santa Cruz, Torre del Oro y Triana incluidos en el recorrido</span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Algarve · Benagil</b><br/>29/8 · reservar excursión en barco cuando elijamos operador y horario; revisar mar antes de salir.<br/><a href="https://www.google.com/maps/search/?api=1&amp;query=Benagil+Cave+Portugal" target="_blank">Maps</a></span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>Algarve:</b> Praia da Marinha y Carvoeiro incluidos en la ruta del 29/8</span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Mérida · Teatro Romano + Anfiteatro</b><br/>2/9 · 09:30 · comprar entrada/bono del conjunto monumental.<br/><a href="https://www.consorciomerida.org/" target="_blank">Comprar / información oficial</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Teatro+Romano+de+Merida" target="_blank">Maps</a></span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Mérida · Museo Nacional de Arte Romano</b><br/>2/9 · 11:40 · revisar horario y entrada antes del viaje.<br/><a href="https://www.cultura.gob.es/mnromano/" target="_blank">Web oficial</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Museo+Nacional+de+Arte+Romano+Merida" target="_blank">Maps</a></span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>Mérida:</b> incluir Templo de Diana, Puente Romano, Casa del Mitreo/Columbarios y Alcazaba o Acueducto</span></label>
+<label class="check check-hotel"><input checked="" type="checkbox"/><span><b>Toledo: Hotel Cigarral El Bosque CONFIRMADO</b><br/>3–5/9 · 2 habitaciones Confort · desayuno incluido · 804 € · pago en hotel · cancelación gratuita hasta 2/9.</span></label>
+<label class="check check-action"><input type="checkbox"/><span><b>Toledo:</b> comprar/reservar entradas de Catedral y monumentos prioritarios para el 4/9</span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>Toledo:</b> definir recorrido Catedral · Judería · Santo Tomé · San Juan de los Reyes · Alcázar</span></label>
+<label class="check check-hotel"><input type="checkbox"/><span><b>Cambio horario:</b> 27/8 atrasar 1 h al entrar en Portugal · 1/9 adelantar 1 h al regresar a España</span></label>
+<label class="check check-general"><input type="checkbox"/><span>A22 sin peaje confirmada; revisar peajes solo si cambia la ruta</span></label>
+<label class="check check-general"><input type="checkbox"/><span>Rutas revisadas antes de cada etapa</span></label>
+<label class="check check-general"><input type="checkbox"/><span>Documentación y equipaje listos</span></label>
+</div><div class="note" id="progress">0 tareas completadas.</div><label class="check check-action"><input type="checkbox"/><span><b>Reservar excursión Benagil · 29/08/2026</b><small>4 personas · confirmar operador, horario, embarque y cancelación.</small></span></label><div class="restaurant-booking-check">
 <h3>🍽️ Reservas de comidas/cenas fuera del resort</h3>
 <p><b>Pendiente:</b> cerrar las mesas cuando estén confirmados los planes/horarios definitivos. Siempre para 4 personas.</p>
-<label class="check"><input type="checkbox"/><span><b>Taverna Olhos de Água</b><small>27/08 · cena ~20:30 PT · ligada a Olhos de Água + Falésia.</small></span></label>
-<label class="check"><input type="checkbox"/><span><b>Boneca Bar · Carvoeiro</b><small>29/08 · comida ~13:30–14:00 PT · ajustar a la hora definitiva de Benagil.</small></span></label>
-<label class="check"><input type="checkbox"/><span><b>MayFlower · Vilamoura Marina</b><small>30/08 · cena ~20:30 PT · ligada a salida opcional a Vilamoura.</small></span></label>
-<label class="check"><input type="checkbox"/><span><b>Frank's · Olhos de Água</b><small>31/08 · cena ~20:30 PT · cena final del Algarve.</small></span></label>
-</div><label class="check"><input type="checkbox"/><span><b>Reservar buggy 4 plazas · 90 min</b><small>Karting Almancil Family Park · +351 289 399 899 · info@kartingalgarve.com · 1 buggy para 4 · 90 min · 175 € previstos · conductor con carnet B · confirmar día/hora y disponibilidad.</small></span></label></section>
+<label class="check check-general"><input type="checkbox"/><span><b>Taverna Olhos de Água</b><small>27/08 · cena ~20:30 PT · ligada a Olhos de Água + Falésia.</small></span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>Boneca Bar · Carvoeiro</b><small>29/08 · comida ~13:30–14:00 PT · ajustar a la hora definitiva de Benagil.</small></span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>MayFlower · Vilamoura Marina</b><small>30/08 · cena ~20:30 PT · ligada a salida opcional a Vilamoura.</small></span></label>
+<label class="check check-general"><input type="checkbox"/><span><b>Frank's · Olhos de Água</b><small>31/08 · cena ~20:30 PT · cena final del Algarve.</small></span></label>
+</div><label class="check check-action"><input type="checkbox"/><span><b>Reservar buggy 4 plazas · 90 min</b><small>Karting Almancil Family Park · +351 289 399 899 · info@kartingalgarve.com · 1 buggy para 4 · 90 min · 175 € previstos · conductor con carnet B · confirmar día/hora y disponibilidad.</small></span></label></section>
 </main>
 <script>
 const buttons=[...document.querySelectorAll('nav button')];
@@ -1019,5 +1165,25 @@ document.addEventListener('DOMContentLoaded',()=>{
    }});
  },{rootMargin:'-25% 0px -65% 0px',threshold:0});
  sections.forEach(s=>obs.observe(s));
+});
+</script><script id="checklist-ui-script-v21">
+document.addEventListener('DOMContentLoaded',()=>{
+ const root=document.querySelector('#check'); if(!root)return;
+ const items=[...root.querySelectorAll('label.check')];
+ const total=document.querySelector('#check-total'),done=document.querySelector('#check-done');
+ const bar=document.querySelector('#check-progress-bar'),label=document.querySelector('#check-progress-label');
+ const filters=[...root.querySelectorAll('.check-filters button')];
+ function update(){
+   const n=items.filter(x=>x.querySelector('input[type=checkbox]')?.checked).length;
+   if(total)total.textContent=items.length;if(done)done.textContent=n;
+   const pct=items.length?Math.round(n/items.length*100):0;
+   if(bar)bar.style.width=pct+'%';
+   if(label)label.textContent=pct===100?'Todo listo para el viaje':pct+'% preparado · '+(items.length-n)+' pendientes';
+   const f=filters.find(b=>b.classList.contains('active'))?.dataset.filter||'all';
+   items.forEach(x=>{const c=!!x.querySelector('input[type=checkbox]')?.checked;x.classList.toggle('is-hidden',f==='pending'?c:f==='done'?!c:false)});
+ }
+ filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');update()}));
+ items.forEach(x=>x.querySelector('input[type=checkbox]')?.addEventListener('change',update));
+ update();
 });
 </script></body></html>
