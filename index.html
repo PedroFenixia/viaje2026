@@ -747,7 +747,187 @@ h3{font-weight:700}
  .check-hero-badge small{display:none}
  #check>.check-hero-v27:after{width:140px;height:140px;right:-60px;bottom:-75px}
 }
-</style></head>
+</style><style id="full-redesign-v28">
+/* =========================================================
+   V28 — COMPLETE UI REDESIGN
+   Dark travel-app shell + bright editorial cards
+   ========================================================= */
+:root{
+ --ink:#172026!important; --muted:#68757d!important;
+ --a:#ff6b4a!important; --a2:#e85235!important;
+ --line:#e6e8e7!important; --paper:#f2f0eb!important;
+ --surface:#ffffff!important; --night:#10282c; --lime:#d9e6a2;
+ --blue:#cfe7ef; --sand:#f0d6a6; --tap:50px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+ margin:0!important;color:var(--ink)!important;background:#f2f0eb!important;
+ font-family:"SF Pro Text",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+ font-size:15px!important;line-height:1.55!important;
+}
+h1,h2,h3{
+ font-family:"SF Pro Display","Avenir Next",Inter,-apple-system,sans-serif!important;
+ letter-spacing:-.04em!important;color:var(--ink)!important
+}
+h2{font-size:clamp(28px,4vw,42px)!important;line-height:1.02!important}
+h3{letter-spacing:-.025em!important}
+a{color:inherit}
+section{
+ max-width:1240px!important;margin:0 auto!important;padding:46px 28px!important;
+ border:0!important;background:transparent!important
+}
+/* Main page header / hero — radically different */
+header,.hero{
+ position:relative!important;overflow:hidden!important;
+ background:#10282c!important;color:white!important;
+ border:0!important;border-radius:0 0 34px 34px!important;
+ padding-top:max(26px,env(safe-area-inset-top))!important;
+ box-shadow:none!important
+}
+header:before,.hero:before{
+ content:"";position:absolute;right:-8vw;top:-18vw;width:42vw;height:42vw;
+ border-radius:50%;background:#ff6b4a;opacity:.95
+}
+header:after,.hero:after{
+ content:"";position:absolute;right:20vw;bottom:-12vw;width:28vw;height:28vw;
+ border-radius:50%;background:#d9e6a2;opacity:.95
+}
+header *,.hero *{position:relative;z-index:2}
+header h1,.hero h1{color:#fff!important;font-size:clamp(42px,7vw,82px)!important;line-height:.92!important;letter-spacing:-.065em!important;max-width:850px}
+header p,.hero p{color:rgba(255,255,255,.78)!important;max-width:680px;font-size:16px!important}
+header .pill,.hero .pill{background:rgba(255,255,255,.12)!important;color:#fff!important;border-color:rgba(255,255,255,.18)!important}
+/* Section headers */
+.head{display:flex!important;align-items:end!important;justify-content:space-between!important;gap:24px!important;margin-bottom:22px!important}
+.head .eyebrow,.eyebrow{font-size:10px!important;font-weight:900!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#e85235!important}
+.head p{max-width:520px;color:var(--muted)!important}
+/* Cards: flat, spacious, editorial */
+.card{
+ background:#fff!important;border:1px solid #e3e5e3!important;border-radius:24px!important;
+ box-shadow:none!important;padding:22px!important;margin-bottom:14px!important
+}
+.card:hover{border-color:#cbd1ce!important}
+.daytop{align-items:flex-start!important}
+.date{font-size:11px!important;font-weight:900!important;letter-spacing:.08em!important;color:#e85235!important;text-transform:uppercase}
+.pill{
+ background:#f1f3f1!important;border:0!important;color:#536267!important;
+ padding:7px 10px!important;border-radius:10px!important;font-weight:800!important
+}
+.timeline{margin-top:14px!important}
+.timeline li{border-bottom:1px solid #eef0ee!important;padding:12px 0!important}
+.timeline li:last-child{border-bottom:0!important}
+.timeline li>span{color:#e85235!important;font-weight:900!important}
+.optional-plan{
+ border:0!important;border-radius:18px!important;background:#eef4d9!important;
+ padding:16px!important
+}
+.optional-plan b{color:#3d5329!important}
+.optional-plan.adventure{background:#fee8df!important}
+.optional-plan.adventure b{color:#a6412b!important}
+.daily-meals{gap:10px!important}
+.meal-row{
+ background:#f6f5f1!important;border:0!important;border-radius:16px!important;
+ padding:15px!important
+}
+.meal-row span{color:#a75b2b!important}
+.pending-confirmation{
+ border:0!important;background:#fff0cc!important;border-radius:18px!important;padding:17px!important
+}
+.spa-note{border:0!important;background:#e3f1f3!important;border-radius:18px!important}
+/* Quick controls */
+.quick-actions{
+ display:flex!important;gap:8px!important;overflow:auto!important;padding:0 0 16px!important
+}
+.quick{
+ min-height:46px!important;border:0!important;border-radius:13px!important;
+ background:#fff!important;color:#25343a!important;padding:0 16px!important;
+ box-shadow:0 2px 0 rgba(0,0,0,.05)!important
+}
+.quick.primary{background:#ff6b4a!important;color:#fff!important;box-shadow:none!important}
+/* Status becomes three bold tiles */
+.planning-status{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:10px!important;margin:0 0 22px!important}
+.planning-status>div{
+ min-height:104px!important;border:0!important;border-radius:20px!important;
+ padding:17px!important;box-shadow:none!important
+}
+.planning-status>div:nth-child(1){background:#dfead1!important}
+.planning-status>div:nth-child(2){background:#ffe5bd!important}
+.planning-status>div:nth-child(3){background:#dbeaf0!important}
+.planning-status b{font-size:15px!important}.planning-status span{font-size:12px!important}
+/* Tables */
+.table-scroll{border-radius:18px!important;background:#fff!important;border:1px solid #e3e5e3!important}
+table{background:#fff!important;border-collapse:collapse!important}
+th{background:#10282c!important;color:#fff!important}
+td,th{padding:13px 14px!important;border-color:#edf0ee!important}
+/* Details */
+.ux-details{background:#fff!important;border:1px solid #e3e5e3!important;border-radius:17px!important;padding:0 15px!important;margin:9px 0!important}
+.ux-details>summary{font-weight:850!important}
+/* Checklist: integrated into new visual system */
+#check>.check-hero-v27{
+ background:#10282c!important;color:white!important;border:0!important;border-radius:28px!important;
+ padding:30px!important;box-shadow:none!important
+}
+#check>.check-hero-v27 h2{color:#fff!important;font-size:clamp(34px,5vw,54px)!important}
+#check>.check-hero-v27 p{color:rgba(255,255,255,.7)!important}
+.check-hero-kicker{color:#d9e6a2!important}
+.check-hero-badge{background:#ff6b4a!important}
+.check-summary-v26>div{border-radius:18px!important;box-shadow:none!important}
+.check-board-v26{gap:12px!important}
+.check-board-v26 .check-group{border-radius:20px!important;box-shadow:none!important;border:1px solid #e3e5e3!important}
+.check-board-v26 .reserve .check-group-head{background:#ffd7ca!important}
+.check-board-v26 .confirm .check-group-head{background:#dcebf0!important}
+.check-board-v26 .before .check-group-head{background:#e5edc8!important}
+/* Budget and notes */
+.note{border:0!important;border-radius:16px!important;background:#fff!important;padding:15px!important}
+.status{border-radius:14px!important;border:0!important}
+/* Desktop nav if present */
+nav:not(.mobile-bottom-nav){
+ background:rgba(16,40,44,.96)!important;color:#fff!important;
+ backdrop-filter:blur(18px)!important
+}
+/* Mobile app treatment */
+.mobile-bottom-nav{
+ background:rgba(16,40,44,.96)!important;border:0!important;border-radius:18px!important;
+ box-shadow:0 10px 32px rgba(0,0,0,.22)!important;padding:6px!important
+}
+.mobile-bottom-nav a{color:rgba(255,255,255,.58)!important}
+.mobile-bottom-nav a.active,.mobile-bottom-nav a:active{background:#ff6b4a!important;color:#fff!important}
+@media(max-width:700px){
+ body{font-size:14px!important;padding-bottom:84px!important}
+ section{padding:32px 14px!important}
+ header,.hero{border-radius:0 0 26px 26px!important}
+ header h1,.hero h1{font-size:48px!important;max-width:8em!important}
+ header:before,.hero:before{width:70vw;height:70vw;right:-32vw;top:-25vw}
+ header:after,.hero:after{width:55vw;height:55vw;right:18vw;bottom:-35vw}
+ .head{display:block!important;margin-bottom:16px!important}
+ .head h2{font-size:31px!important;margin-bottom:7px!important}
+ .head p{font-size:13px!important}
+ .quick-actions{
+  position:sticky!important;top:0!important;z-index:40!important;
+  margin:0 -14px 16px!important;padding:9px 14px!important;
+  background:rgba(242,240,235,.94)!important;backdrop-filter:blur(16px)!important
+ }
+ .quick{flex:0 0 auto!important;min-height:44px!important}
+ .planning-status{display:flex!important;overflow-x:auto!important;gap:9px!important;scroll-snap-type:x mandatory}
+ .planning-status>div{flex:0 0 78%!important;scroll-snap-align:start!important}
+ .card{border-radius:19px!important;padding:16px!important}
+ .daytop{display:grid!important;grid-template-columns:1fr auto!important}
+ .timeline li{grid-template-columns:56px 1fr!important;gap:9px!important}
+ .daily-meals{grid-template-columns:1fr!important}
+ #check>.check-hero-v27{padding:22px 18px!important;border-radius:20px!important}
+ #check>.check-hero-v27 h2{font-size:36px!important}
+ .check-summary-v26{display:none!important}
+ .check-board-v26{grid-template-columns:1fr!important}
+ .mobile-bottom-nav{left:8px!important;right:8px!important;bottom:max(8px,env(safe-area-inset-bottom))!important}
+}
+/* Large screens */
+@media(min-width:1400px){
+ section{max-width:1360px!important;padding-left:34px!important;padding-right:34px!important}
+ .card{padding:26px!important}
+}
+/* Accessibility */
+:focus-visible{outline:3px solid rgba(255,107,74,.45)!important;outline-offset:3px!important}
+</style><meta content="V28-full-redesign-2026-08-17" name="planning-design-version"/></head>
 <body>
 <!-- PLANNING CLEAN · 17-08-2026 -->
 <header class="hero"><div class="wrap">
